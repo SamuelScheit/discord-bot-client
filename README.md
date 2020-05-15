@@ -1,7 +1,8 @@
 # Discord Bot Client
 Allows you to use your bot, just like any other user account, except Friends, Groups and Voice
 
-## [Demo](https://discordbotclient.discord.id/)
+## [Demo](https://discordclient.com/)
+Direct host of the Github Repository without modifications
 WIP
 
 ## Install
