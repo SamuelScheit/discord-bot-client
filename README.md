@@ -23,6 +23,7 @@ Now navigate to http://localhost:3000/
 - Manage Channels (Add, Delete, Name, Permissions, Invites, Webhooks, Slowmode, NSFW, Topic)
 - Messages (Send, View History, Embeds, View Reactions, Add/Remove Reactions, Delete, Edit, Pin)
 - Create a Guild (if the bot has fewer than 10 Servers)
+- Even supports mobile smartphones
 
 ## DM
 If you load the page, DM's will show up, if a new user writes the bot and you can answer him
