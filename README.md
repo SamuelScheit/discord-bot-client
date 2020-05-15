@@ -1,7 +1,7 @@
 # Discord Bot Client
 Allows you to use your bot, just like any other user account, except Friends, Groups and Voice
 
-## [Demo](http://discordclient.tk/)
+## [Demo](https://discordbotclient.discord.id/)
 WIP
 
 ## Install
@@ -26,7 +26,7 @@ Now navigate to http://localhost:3000/
 - Even supports mobile smartphones
 
 ## DM
-If you load the page, DM's will show up, if a new user writes the bot and you can answer him
+If you load the page, DM's will show up, if a new user writes the bot then you can answer him
 
 ## Planned Features
 - Direct Messages (DM) history list
@@ -34,10 +34,11 @@ If you load the page, DM's will show up, if a new user writes the bot and you ca
 - React with other emojis (Nitro)
 - GIF Search
 - Send Files
+- Voice Support
 
 ## Not supported by discord api
 - Message search
-- Voice/Video
+- Video
 - Friends
 - DM Groups
 - Join server with invite link
