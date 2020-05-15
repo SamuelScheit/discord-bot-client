@@ -3968,9 +3968,9 @@
 									a = t.undelete;
 
 									localStorage.setItem("token", `"Bot ${r}"`)
-									location.replace("/app");
 									
-                                null != e && e.preventDefault(), /*u.default.loginToken(r, true),*/ A.ComponentDispatch.dispatch(k.ComponentActions.WAVE_EMPHASIZE)
+								null != e && e.preventDefault();
+								location.replace("/app");
                             }, n.handleTokenSubmit = function(e) {
                                 var t = n.state.code,
                                     r = n.props.mfaTicket;
