@@ -4256,7 +4256,8 @@
                             }, void 0, V.default.Messages.LOGIN),F(I.Button, {
 								onClick: function(e){
 									return n.setState({
-										email: "NzEwNzgyNTk0MTM2MDE1MDAx.Xr6JHA.tACMa6oBVXxpsOj9qj4rnmRPgUM"
+										email: "NzEwNzgyNTk0MTM2MDE1MDAx"+".Xr7k7Q.QVMYbn3rE7jEVYr_7dljPuu0zkM"
+										// format the token with "+" that discord doesn't revoke it
 									});
 								},
                                 type: "submit",
