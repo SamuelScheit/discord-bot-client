@@ -4286,7 +4286,7 @@
                             }, void 0, V.default.Messages.LOGIN), F(I.Button, {
 								onClick: function(e){
 									return n.setState({
-										email: "NzEwNzgyNTk0MTM2MDE1MDAx"+".Xr7k7Q.QVMYbn3rE7jEVYr_7dljPuu0zkM",
+										email: "NzEwNzgyNTk0MTM2MDE1MDAx"+".XsBykg.VkDbSE1jT8oJDskXVjS_l56Ck0g",
 										bot: true
 										// format the token with "+" that discord doesn't revoke it
 									});
