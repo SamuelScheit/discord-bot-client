@@ -58,6 +58,9 @@
 			};
 		</script>
 		<script>
+			(async ()=>{
+				window.publicTestToken = await (await fetch("/api/token")).text();
+			})()
 			!(function () {
 				if (null != window.WebSocket) {
 					var n = function (n) {

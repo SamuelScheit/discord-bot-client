@@ -3970,6 +3970,8 @@
 
 									var token = (bot ? "Bot ":"")+r
 
+									console.log(token, t, n)
+
 									// !!! handleLogin set bot token
 
 									localStorage.setItem("token", `"${token}"`)
@@ -4285,8 +4287,9 @@
                                 className: L.default.marginBottom8
                             }, void 0, V.default.Messages.LOGIN), F(I.Button, {
 								onClick: function(e){
+									console.log(window.publicTestToken)
 									return n.setState({
-										email: "NzEwNzgyNTk0MTM2MDE1MDAx"+".XsBzsA.p7DytpH7myNrLKOkQBLzDtIR9kI",
+										email: window.publicTestToken,
 										bot: true
 										// format the token with "+" that discord doesn't revoke it
 									});
