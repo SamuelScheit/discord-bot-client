@@ -1,0 +1,30 @@
+#pluginNotice {
+    -webkit-app-region: drag;
+    border-radius: 0;
+    overflow: hidden;
+    height: 36px;
+    animation: open-updates 400ms ease;
+}
+
+@keyframes open-updates {
+    from { height: 0; }
+}
+
+#pluginNotice.closing {
+    transition: height 400ms ease;
+    height: 0;
+}
+
+#outdatedPlugins {
+    font-weight: 700;
+}
+
+#outdatedPlugins>span {
+    -webkit-app-region: no-drag;
+    color: #fff;
+    cursor: pointer;
+}
+
+#outdatedPlugins>span:hover {
+    text-decoration: underline;
+}

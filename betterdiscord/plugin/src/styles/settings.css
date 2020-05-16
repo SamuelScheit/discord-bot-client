@@ -1,0 +1,66 @@
+.plugin-input-group {
+    margin-top: 5px;
+}
+
+.plugin-input-group .button-collapse {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FscXVlXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSItOTUwIDUzMiAxOCAxOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAtOTUwIDUzMiAxOCAxODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6bm9uZTt9DQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTS05MzIsNTMydjE4aC0xOHYtMThILTkzMnoiLz4NCjxwb2x5bGluZSBjbGFzcz0ic3QxIiBwb2ludHM9Ii05MzYuNiw1MzguOCAtOTQxLDU0My4yIC05NDUuNCw1MzguOCAiLz4NCjwvc3ZnPg0K);
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    vertical-align: bottom;
+    transition: transform .3s ease;
+    transform: rotate(0);
+}
+
+.plugin-input-group .button-collapse.collapsed {
+    transition: transform .3s ease;
+    transform: rotate(-90deg);
+}
+
+.plugin-input-group h2 {
+    font-size: 14px;
+}
+
+.plugin-input-group .plugin-input-group h2 {
+    margin-left: 16px;
+}
+
+.plugin-inputs {
+    height: auto;
+    overflow: hidden;
+    transition: height 300ms cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.plugin-inputs.collapsed {
+    height: 0px;
+}
+
+.file-input {
+
+}
+
+.file-input::-webkit-file-upload-button {
+    color: white;
+    background: #7289DA;
+    outline: 0;
+    border: 0;
+    padding: 10px;
+    vertical-align: top;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 3px 0 0 3px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+    cursor: pointer;
+}
+
+.color-input {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+.color-input:hover {
+    opacity: 0.8;
+}
