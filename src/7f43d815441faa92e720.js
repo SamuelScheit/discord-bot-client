@@ -3962,12 +3962,17 @@
                                 return null
                             }, n.handleLogin = function(e) {
                                 var t = n.state,
+                                    bot = t.bot,
                                     r = t.email,
                                     i = t.password,
                                     s = t.captchaKey,
 									a = t.undelete;
 
-									localStorage.setItem("token", `"Bot ${r}"`)
+									var token = (bot ? "Bot ":"")+r
+
+									// !!! handleLogin set bot token
+
+									localStorage.setItem("token", `"${token}"`)
 									
 								null != e && e.preventDefault();
 								location.replace("/app");
@@ -4045,7 +4050,8 @@
                                 checkingHandoff: t.handoffAvailable,
                                 email: r.email || "",
                                 password: "",
-                                code: "",
+								code: "",
+								bot: true,
                                 smsCode: "",
                                 captchaKey: null,
                                 undelete: !1
@@ -4233,7 +4239,31 @@
                                 className: R.default.mainLoginContainer
                             }, void 0, t, F(I.Block, {
                                 className: L.default.marginTop20
-                            }, void 0, F(I.Input, {
+                            }, void 0, F("div", {
+								className: "horizontal-2EEEnY flex-1O1GKY directionRow-3v3tfG marginBottom4-2qk4Hy",
+								onClick: function(e){
+												console.log(n, n.state)
+												return n.setState({
+													bot: !n.state.bot
+												});
+											},
+							},void 0, 
+									F("h3", {
+										className: "colorStandard-2KCXvj size14-e6ZScH h3-3PDeKG title-3sZWYQ defaultColor-1_ajX0 marginReset-236NPn"
+									},void 0, 
+										F("label", null,void 0,  "Bot")
+									), 
+									F("div", {
+										className: "switch-3wwwcV sizeDefault-2YlOZr size-3rFEHg themeDefault-24hCdX value-2hFrkk " + (n.state.bot?"switchEnabled-V2WDBB  valueChecked-m-4IJZ":"")
+									},
+										F("input", {
+											checked: n.state.bot,
+											type: "checkbox",
+											className: "checkbox-3EVISJ "+(n.state.bot?"checkboxEnabled-CtinEn":"")
+										})
+									)
+							),
+							 F(I.Input, {
                                 className: L.default.marginBottom20,
                                 label: V.default.Messages.FORM_LABEL_TOKEN,
                                 error: this.renderError("email"),
@@ -4253,10 +4283,11 @@
                                 type: "submit",
                                 submitting: u === k.LoginStates.LOGGING_IN,
                                 className: L.default.marginBottom8
-                            }, void 0, V.default.Messages.LOGIN),F(I.Button, {
+                            }, void 0, V.default.Messages.LOGIN), F(I.Button, {
 								onClick: function(e){
 									return n.setState({
-										email: "NzEwNzgyNTk0MTM2MDE1MDAx"+".Xr7k7Q.QVMYbn3rE7jEVYr_7dljPuu0zkM"
+										email: "NzEwNzgyNTk0MTM2MDE1MDAx"+".Xr7k7Q.QVMYbn3rE7jEVYr_7dljPuu0zkM",
+										bot: true
 										// format the token with "+" that discord doesn't revoke it
 									});
 								},
@@ -33486,7 +33517,8 @@
                                 password: "",
                                 rawDateOfBirth: "",
                                 parsedDateOfBirth: null,
-                                captchaKey: null,
+								captchaKey: null,
+								bot: true,
                                 consent: !t.consentRequired,
                                 consentRequiredProp: t.consentRequired,
                                 isRateLimited: !1

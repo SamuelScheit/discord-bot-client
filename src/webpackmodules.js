@@ -35,3 +35,70 @@ const findByPrototypes = (...protoNames) =>
 const findByDisplayName = (displayName) => find((module) => module.displayName === displayName);
 
 // window.WebpackModules = { find, findAll, findByProps, findByPrototypes, findByDisplayName };
+
+window.req = webpackJsonp.push([[], {
+    '__extra_id__': (module, exports, req) => module.exports = req
+}, [['__extra_id__']]]);
+delete req.m['__extra_id__'];
+delete req.c['__extra_id__'];
+
+window.findModule = (module, silent) => {
+    for (let i in req.c) {
+        if (req.c.hasOwnProperty(i)) {
+            let m = req.c[i].exports;
+            if (m && m.__esModule && m.default && m.default[module] !== undefined)
+                return m.default;
+            if (m && m[module] !== undefined)
+                return m;
+        }
+    }
+    return null;
+};
+window.findModules = (module) => {
+    let mods = [];
+    for (let i in req.c) {
+        if (req.c.hasOwnProperty(i)) {
+            let m = req.c[i].exports;
+            if (m && m.__esModule && m.default && m.default[module] !== undefined)
+                mods.push(m.default);
+            if (m && m[module] !== undefined)
+                mods.push(m);
+        }
+    }
+    return mods;
+};
+window.findRawModule = (module, silent) => {
+    for (let i in req.c) {
+        if (req.c.hasOwnProperty(i)) {
+            let m = req.c[i].exports;
+            if (m && m.__esModule && m.default && m.default[module] !== undefined)
+                return req.c[i];
+            if (m && m[module] !== undefined)
+                return req.c[i];
+        }
+    }
+    return null;
+};
+window.monkeyPatch = function(what, methodName, newFunc) {
+    if (!what || typeof what !== 'object')
+        return false;
+    const displayName = what.displayName || what.name || what.constructor.displayName || what.constructor.name;
+    const origMethod = what[methodName];
+    const cancel = () => {
+        what[methodName] = origMethod;
+        return true;
+    };
+    what[methodName] = function() {
+        const data = {
+            thisObject: this,
+            methodArguments: arguments,
+            originalMethod: origMethod,
+            callOriginalMethod: () => data.returnValue = data.originalMethod.apply(data.thisObject, data.methodArguments)
+        };
+        return newFunc(data);
+    };
+    what[methodName].__monkeyPatched = true;
+    what[methodName].displayName = 'patched ' + (what[methodName].displayName || methodName);
+    what[methodName].unpatch = cancel;
+    return true;
+};
