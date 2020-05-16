@@ -7,10 +7,10 @@
 		<!-- section:seometa -->
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Discord" />
-		<meta property="og:title" content="Discord - A New Way to Chat with Friends & Communities" />
+		<meta property="og:title" content="Discord Bot Client - Login to Discord with your bot token" />
 		<meta
 			property="og:description"
-			content="Discord is the easiest way to communicate over voice, video, and text.  Chat, hang out, and stay close with your friends and communities."
+			content="Discord Bot Client is the easiest way to login to your Bot with your token"
 		/>
 		<meta property="og:image" content="https://discord.com/assets/ee7c382d9257652a88c8f7b7f22a994d.png" />
 		<meta name="twitter:card" content="summary_large_image" />
@@ -20,8 +20,9 @@
 		<link rel="stylesheet" href="/src/0.b036adad6795509a26dc.css" />
 		<link rel="icon" href="/assets/07dca80a102d4149e9736d4b162cff6f.ico" />
 		<!-- section:title -->
-		<title>Discord</title>
+		<title>Discord Bot Client</title>
 		<!-- endsection -->
+		<script src="/src/proxy.js"></script>
 	</head>
 
 	<body>
@@ -87,6 +88,7 @@
 								i.messages.push(n);
 							}),
 							(window._ws = { ws: a, state: i });
+							console.log(window._ws)
 					}
 				}
 			})();
@@ -94,9 +96,12 @@
 		<script src="/src/52a74fcfaa3a43250da1.js"></script>
 		<script src="/src/21ada726f826628eb247.js"></script>
 		<script src="/src/36dd7568a3dd260fb343.js"></script>
-		<script src="/src/1d880e63bd069edc9bfe.js"></script>
+		<script src="/src/logger.js"></script>
+		<script src="/src/utilities.js"></script>
+		<script src="/src/discordmodules.js"></script>
 		<script src="/src/webpackmodules.js"></script>
-		<script src="/src/classes.js"></script>
+		<script src="/src/botlogin.js"></script>
+		<script src="/src/1d880e63bd069edc9bfe.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136743439-2"></script>
 		<script>
 		window.dataLayer = window.dataLayer || [];
