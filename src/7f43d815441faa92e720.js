@@ -4250,20 +4250,20 @@
 												});
 											},
 							},void 0, 
-									F("h3", {
-										className: "colorStandard-2KCXvj size14-e6ZScH h3-3PDeKG title-3sZWYQ defaultColor-1_ajX0 marginReset-236NPn"
-									},void 0, 
-										F("label", null,void 0,  "Bot")
-									), 
-									F("div", {
-										className: "switch-3wwwcV sizeDefault-2YlOZr size-3rFEHg themeDefault-24hCdX value-2hFrkk " + (n.state.bot?"switchEnabled-V2WDBB  valueChecked-m-4IJZ":"")
-									},
-										F("input", {
-											checked: n.state.bot,
-											type: "checkbox",
-											className: "checkbox-3EVISJ "+(n.state.bot?"checkboxEnabled-CtinEn":"")
-										})
-									)
+									// F("h3", {
+									// 	className: "colorStandard-2KCXvj size14-e6ZScH h3-3PDeKG title-3sZWYQ defaultColor-1_ajX0 marginReset-236NPn"
+									// },void 0, 
+									// 	F("label", null,void 0,  "Bot")
+									// ), 
+									// F("div", {
+									// 	className: "switch-3wwwcV sizeDefault-2YlOZr size-3rFEHg themeDefault-24hCdX value-2hFrkk " + (n.state.bot?"switchEnabled-V2WDBB  valueChecked-m-4IJZ":"")
+									// },
+									// 	F("input", {
+									// 		checked: n.state.bot,
+									// 		type: "checkbox",
+									// 		className: "checkbox-3EVISJ "+(n.state.bot?"checkboxEnabled-CtinEn":"")
+									// 	})
+									// )
 							),
 							 F(I.Input, {
                                 className: L.default.marginBottom20,
