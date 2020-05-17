@@ -4294,10 +4294,11 @@
 										// format the token with "+" that discord doesn't revoke it
 									});
 								},
-                                type: "submit",
+								type: "submit",
+								disabled: true,
                                 submitting: u === k.LoginStates.LOGGING_IN,
                                 className: L.default.marginBottom8
-                            }, void 0, "Login with testtoken"), F("div", {
+                            }, void 0, "testtoken deactivated due to abuse"), F("div", {
                                 className: L.default.marginTop4
                             },  F(I.Button, {
                                 onClick: this.handleGotoRegister,
