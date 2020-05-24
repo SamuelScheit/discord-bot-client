@@ -30,13 +30,14 @@ Now navigate to http://localhost:3000/
 If you load the page, DM's will show up, if a new user writes the bot then you can answer him
 
 ## Planned Features
+- Better Discord support
 - Direct Messages (DM) history list
 - Change Status
 - React with other emojis (Nitro)
 - GIF Search
 - Send Files
 - Voice Support
-- See Guild members
+- See Guild members in the side bar (you can see them in the server dropdown menu under members)
 
 ## Not supported by discord api
 - Message search
