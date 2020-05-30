@@ -25,6 +25,7 @@ Now navigate to http://localhost:3000/
 - Messages (Send, View History, Embeds, View Reactions, Add/Remove Reactions, Delete, Edit, Pin)
 - Create a Guild (if the bot has fewer than 10 Servers)
 - Even supports mobile smartphones
+- Voice Support
 
 ## DM
 If you load the page, DM's will show up, if a new user writes the bot then you can answer him
@@ -36,7 +37,6 @@ If you load the page, DM's will show up, if a new user writes the bot then you c
 - React with other emojis (Nitro)
 - GIF Search
 - Send Files
-- Voice Support
 - See Guild members in the side bar (you can see them in the server dropdown menu under members)
 
 ## Not supported by discord api
