@@ -401,6 +401,8 @@ window.unavailableGuilds = [];
 						case "NO_GUILD_CREATE":
 						`
 					);
+					var ActionTypes = fixGuildCreate.match(/case ..ActionTypes.GUILD_MEMBERS_CHUNK:/g)[0];
+					ActionTypes = ActionTypes.replace(".ActionTypes.GUILD_MEMBERS_CHUNK:", "").replace("case ", "");
 					const fixGuildMemberChunk = fixGuildCreate.replace(
 						/case ..ActionTypes.GUILD_MEMBERS_CHUNK:/g,
 						`$&
@@ -454,7 +456,7 @@ window.unavailableGuilds = [];
 
 						console.log("force emit GUILD_MEMBER_LIST_UPDATE")
 
-						${varname}._events.dispatch(x.ActionTypes.GUILD_MEMBER_LIST_UPDATE, {
+						${varname}._events.dispatch(${ActionTypes}.ActionTypes.GUILD_MEMBER_LIST_UPDATE, {
 							guild_id: t.guild_id,
 							id: "everyone",
 							ops: ops,
