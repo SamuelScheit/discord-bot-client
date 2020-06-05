@@ -7,17 +7,6 @@ window.unavailableGuilds = [];
 		loaded++;
 		if (loaded === pending) {
 			console.log("init better discord");
-			setTimeout(() => {
-				window.req = webpackJsonp.push([
-					[],
-					{
-						__extra_id__: (module, exports, req) => (module.exports = req),
-					},
-					[["__extra_id__"]],
-				]);
-				delete req.m["__extra_id__"];
-				delete req.c["__extra_id__"];
-			}, 4000);
 
 			// setTimeout(async() => {
 			// 	await new Promise((res) => {
@@ -83,76 +72,77 @@ window.unavailableGuilds = [];
 						if (res.includes(`._handleDispatch=function(`)) {
 							console.log("patch login screen");
 
-							const fixReadState = res.replace(/=..read_state/g, "=[]");
-							const fixLoginScreen = fixReadState.replace(
+							// const fixReadState = res.replace(/=..read_state/g, "=[]");
+							const fixLoginScreen = res.replace(
 								`G.renderDefaultForm=function(e){var t,n=this,r=this.props,a=r.invite,o=r.giftCode,u=r.loginStatus,f=r.isGuest,d=!this.hasError("email")&&this.hasError("password");return t=null!=a&&null!=a.channel?F(D.default,{invite:a}):null!=o?F(C.default,{giftCode:o}):f?null:F(i.Fragment,{},void 0,F(T.Title,{className:L.default.marginBottom8},"title",M.default.Messages.LOGIN_TITLE),F(T.SubTitle,{},"subtitle",M.default.Messages.AUTH_LOGIN_BODY)),F(I.default,{direction:I.default.Direction.HORIZONTAL,align:I.default.Align.CENTER},void 0,F("div",{className:R.default.mainLoginContainer},void 0,t,F(T.Block,{className:L.default.marginTop20},void 0,F(T.Input,{className:L.default.marginBottom20,label:M.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!d}),F(T.Input,{label:M.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:d,value:this.state.password}),F(T.Button,{onClick:this.handleForgotPassword,look:T.Button.Looks.LINK,className:(0,s.default)(L.default.marginBottom20,L.default.marginTop4)},void 0,M.default.Messages.FORGOT_PASSWORD),F(T.Button,{type:"submit",submitting:u===k.LoginStates.LOGGING_IN,className:L.default.marginBottom8},void 0,M.default.Messages.LOGIN),F("div",{className:L.default.marginTop4},void 0,F("span",{className:R.default.needAccount},void 0,M.default.Messages.NEED_ACCOUNT),F(T.Button,{onClick:this.handleGotoRegister,look:T.Button.Looks.LINK,className:R.default.smallRegisterLink},void 0,M.default.Messages.REGISTER)))),e?F(N.default,{authTokenCallback:this.handleAuthToken}):null)}`,
 								`G.renderDefaultForm = function (e) {
-								var t,
-									n = this,
-									r = this.props,
-									a = r.invite,
-									o = r.giftCode,
-									u = r.loginStatus,
-									f = r.isGuest,
-									d = !this.hasError("email") && this.hasError("password");
-								return (
-									(t = null != a && null != a.channel
-											? F(D.default, { invite: a })
-											: null != o
-											? F(C.default, { giftCode: o })
-											: f
-											? null
-											: F(
-													i.Fragment,
-													{},
-													void 0,
-													F(T.Title, { className: L.default.marginBottom8 }, "title", M.default.Messages.LOGIN_TITLE),
-													F(T.SubTitle, {}, "subtitle", M.default.Messages.AUTH_LOGIN_BODY)
-											)),
-									F(
-										I.default,
-										{ direction: I.default.Direction.HORIZONTAL, align: I.default.Align.CENTER },
-										void 0,
+									var t,
+										n = this,
+										r = this.props,
+										a = r.invite,
+										o = r.giftCode,
+										u = r.loginStatus,
+										f = r.isGuest,
+										d = !this.hasError("email") && this.hasError("password");
+									return (
+										(t =
+											null != a && null != a.channel
+												? F(D.default, { invite: a })
+												: null != o
+												? F(C.default, { giftCode: o })
+												: f
+												? null
+												: F(
+														i.Fragment,
+														{},
+														void 0,
+														F(T.Title, { className: L.default.marginBottom8 }, "title", M.default.Messages.LOGIN_TITLE),
+														F(T.SubTitle, {}, "subtitle", M.default.Messages.AUTH_LOGIN_BODY)
+												)),
 										F(
-											"div",
-											{ className: R.default.mainLoginContainer },
+											I.default,
+											{ direction: I.default.Direction.HORIZONTAL, align: I.default.Align.CENTER },
 											void 0,
-											t,
 											F(
-												T.Block,
-												{ className: L.default.marginTop20 },
+												"div",
+												{ className: R.default.mainLoginContainer },
 												void 0,
-												F(T.Input, {
-													className: L.default.marginBottom20,
-													label: "TOKEN",
-													error: this.renderError("email"),
-													onChange: function (e) {
-														return n.setState({ email: e });
-													},
-													name: "email",
-													type: "text",
-													setRef: this.setEmailRef,
-													autoComplete: "off",
-													spellCheck: "false",
-													value: this.state.email,
-													autoFocus: !d,
-												}),
+												t,
 												F(
-													T.Button,
-													{
-														type: "submit",
-														submitting: u === k.LoginStates.LOGGING_IN,
-														className: L.default.marginBottom8,
-													},
+													T.Block,
+													{ className: L.default.marginTop20 },
 													void 0,
-													M.default.Messages.LOGIN
+													F(T.Input, {
+														className: L.default.marginBottom20,
+														label: "TOKEN",
+														error: this.renderError("email"),
+														onChange: function (e) {
+															return n.setState({ email: e });
+														},
+														name: "email",
+														type: "text",
+														setRef: this.setEmailRef,
+														autoComplete: "off",
+														spellCheck: "false",
+														value: this.state.email,
+														autoFocus: !d,
+													}),
+													F(
+														T.Button,
+														{
+															type: "submit",
+															submitting: u === k.LoginStates.LOGGING_IN,
+															className: L.default.marginBottom8,
+														},
+														void 0,
+														M.default.Messages.LOGIN
+													)
 												)
-											)
-										),
-										e ? F(N.default, { authTokenCallback: this.handleAuthToken }) : null
-									)
-								);
-							}`
+											),
+											e ? F(N.default, { authTokenCallback: this.handleAuthToken }) : null
+										)
+									);
+								}`
 							);
 							const fixQrCode = fixLoginScreen.replace(
 								`return a.createElement(a.Fragment,null,O("div",{className:T.default.verticalSeparator}),O(_.default,{fillParent:!0,className:T.default.qrLogin,step:u,steps:[s.QR_CODE,s.CONFIRM]},void 0,O("div",{className:T.default.qrLoginInner},void 0,O(M,{state:n,cancel:r}))))`,
@@ -175,91 +165,9 @@ window.unavailableGuilds = [];
 									window.location.replace("/app");
 									e.preventDefault();
 									return;
-
-									null != e && e.preventDefault(),
-										u.default.login({
-											email: r,
-											password: i,
-											undelete: a,
-											captchaKey: s,
-											source: n.loginSource,
-											giftCodeSKUId: n.giftCodeSKUId,
-										}),
-										A.ComponentDispatch.dispatch(k.ComponentActions.WAVE_EMPHASIZE);
 								}`
 							);
-							const fixLoginForm = fixLoginHandle.replace(
-								`G.renderDefaultForm=function(e){var t,n=this,r=this.props,i=r.invite,s=r.giftCode,u=r.loginStatus,l=r.isGuest,c=!this.hasError("email")&&this.hasError("password");return t=null!=i&&null!=i.channel?B(M.default,{invite:i}):null!=s?B(N.default,{giftCode:s}):l?null:B(a.Fragment,{},void 0,B(b.Title,{className:U.default.marginBottom8},"title",D.default.Messages.LOGIN_TITLE),B(b.SubTitle,{},"subtitle",D.default.Messages.AUTH_LOGIN_BODY)),B(S.default,{direction:S.default.Direction.HORIZONTAL,align:S.default.Align.CENTER},void 0,B("div",{className:w.default.mainLoginContainer},void 0,t,B(b.Block,{className:U.default.marginTop20},void 0,B(b.Input,{className:U.default.marginBottom20,label:D.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!c}),B(b.Input,{label:D.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:c,value:this.state.password}),B(b.Button,{onClick:this.handleForgotPassword,look:b.Button.Looks.LINK,className:(0,o.default)(U.default.marginBottom20,U.default.marginTop4)},void 0,D.default.Messages.FORGOT_PASSWORD),B(b.Button,{type:"submit",submitting:u===R.LoginStates.LOGGING_IN,className:U.default.marginBottom8},void 0,D.default.Messages.LOGIN),B("div",{className:U.default.marginTop4},void 0,B("span",{className:w.default.needAccount},void 0,D.default.Messages.NEED_ACCOUNT),B(b.Button,{onClick:this.handleGotoRegister,look:b.Button.Looks.LINK,className:w.default.smallRegisterLink},void 0,D.default.Messages.REGISTER)))),e?B(P.default,{authTokenCallback:this.handleAuthToken}):null)}`,
-								`G.renderDefaultForm = function (e) {
-								var t,
-									n = this,
-									r = this.props,
-									i = r.invite,
-									s = r.giftCode,
-									u = r.loginStatus,
-									l = r.isGuest,
-									c = !this.hasError("email") && this.hasError("password");
-								return (
-									(t =
-										null != i && null != i.channel
-											? B(M.default, { invite: i })
-											: null != s
-											? B(N.default, { giftCode: s })
-											: l
-											? null
-											: B(
-													a.Fragment,
-													{},
-													void 0,
-													B(b.Title, { className: U.default.marginBottom8 }, "title", D.default.Messages.LOGIN_TITLE),
-													B(b.SubTitle, {}, "subtitle", D.default.Messages.AUTH_LOGIN_BODY)
-											)),
-											B(
-												S.default,
-												{ direction: S.default.Direction.HORIZONTAL, align: S.default.Align.CENTER },
-												void 0,
-												B(
-													"div",
-													{ className: w.default.mainLoginContainer },
-													void 0,
-													t,
-													B(
-														b.Block,
-														{ className: U.default.marginTop20 },
-														void 0,
-														B(b.Input, {
-															className: U.default.marginBottom20,
-															label: "TOKEN",
-															error: this.renderError("email"),
-															onChange: function (e) {
-																return n.setState({ email: e });
-															},
-															name: "email",
-															type: "email",
-															setRef: this.setEmailRef,
-															autoComplete: "off",
-															spellCheck: "false",
-															value: this.state.email,
-															autoFocus: !c,
-														}),
-														B(
-															b.Button,
-															{
-																type: "submit",
-																submitting: u === R.LoginStates.LOGGING_IN,
-																className: U.default.marginBottom8,
-															},
-															void 0,
-															D.default.Messages.LOGIN
-														)
-											)
-										),
-										e ? B(P.default, { authTokenCallback: this.handleAuthToken }) : null
-									)
-								);
-							}`
-							);
-							res = fixLoginForm;
+							res = fixLoginHandle;
 						}
 					};
 
@@ -624,7 +532,101 @@ window.unavailableGuilds = [];
 							},0);
 							return e.stop();`
 					);
-					script = fixNote;
+					const fixLoginScreen = fixNote.replace(
+						`G.renderDefaultForm=function(e){var t,n=this,r=this.props,i=r.invite,s=r.giftCode,u=r.loginStatus,l=r.isGuest,c=!this.hasError("email")&&this.hasError("password");return t=null!=i&&null!=i.channel?B(M.default,{invite:i}):null!=s?B(N.default,{giftCode:s}):l?null:B(a.Fragment,{},void 0,B(b.Title,{className:U.default.marginBottom8},"title",D.default.Messages.LOGIN_TITLE),B(b.SubTitle,{},"subtitle",D.default.Messages.AUTH_LOGIN_BODY)),B(S.default,{direction:S.default.Direction.HORIZONTAL,align:S.default.Align.CENTER},void 0,B("div",{className:w.default.mainLoginContainer},void 0,t,B(b.Block,{className:U.default.marginTop20},void 0,B(b.Input,{className:U.default.marginBottom20,label:D.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!c}),B(b.Input,{label:D.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:c,value:this.state.password}),B(b.Button,{onClick:this.handleForgotPassword,look:b.Button.Looks.LINK,className:(0,o.default)(U.default.marginBottom20,U.default.marginTop4)},void 0,D.default.Messages.FORGOT_PASSWORD),B(b.Button,{type:"submit",submitting:u===R.LoginStates.LOGGING_IN,className:U.default.marginBottom8},void 0,D.default.Messages.LOGIN),B("div",{className:U.default.marginTop4},void 0,B("span",{className:w.default.needAccount},void 0,D.default.Messages.NEED_ACCOUNT),B(b.Button,{onClick:this.handleGotoRegister,look:b.Button.Looks.LINK,className:w.default.smallRegisterLink},void 0,D.default.Messages.REGISTER)))),e?B(P.default,{authTokenCallback:this.handleAuthToken}):null)}`,
+						`G.renderDefaultForm = function (e) {
+						var t,
+							n = this,
+							r = this.props,
+							i = r.invite,
+							s = r.giftCode,
+							u = r.loginStatus,
+							l = r.isGuest,
+							c = !this.hasError("email") && this.hasError("password");
+						return (
+							(t =
+								null != i && null != i.channel
+									? B(M.default, { invite: i })
+									: null != s
+									? B(N.default, { giftCode: s })
+									: l
+									? null
+									: B(
+											a.Fragment,
+											{},
+											void 0,
+											B(b.Title, { className: U.default.marginBottom8 }, "title", D.default.Messages.LOGIN_TITLE),
+											B(b.SubTitle, {}, "subtitle", D.default.Messages.AUTH_LOGIN_BODY)
+									)),
+							B(
+								S.default,
+								{ direction: S.default.Direction.HORIZONTAL, align: S.default.Align.CENTER },
+								void 0,
+								B(
+									"div",
+									{ className: w.default.mainLoginContainer },
+									void 0,
+									t,
+									B(
+										b.Block,
+										{ className: U.default.marginTop20 },
+										void 0,
+										B(b.Input, {
+											className: U.default.marginBottom20,
+											label: "TOKEN",
+											error: this.renderError("email"),
+											onChange: function (e) {
+												return n.setState({ email: e });
+											},
+											name: "email",
+											type: "text",
+											setRef: this.setEmailRef,
+											autoComplete: "off",
+											spellCheck: "false",
+											value: this.state.email,
+											autoFocus: !c,
+										}),
+										B(
+											b.Button,
+											{
+												type: "submit",
+												submitting: u === R.LoginStates.LOGGING_IN,
+												className: U.default.marginBottom8,
+											},
+											void 0,
+											D.default.Messages.LOGIN
+										)
+									)
+								),
+								e ? B(P.default, { authTokenCallback: this.handleAuthToken }) : null
+							)
+						);
+					}`
+					);
+					const fixQrCode = fixLoginScreen.replace(
+						`return i.createElement(i.Fragment,null,A("div",{className:b.default.verticalSeparator}),A(p.default,{fillParent:!0,className:b.default.qrLogin,step:u,steps:[o.QR_CODE,o.CONFIRM]},void 0,A("div",{className:b.default.qrLoginInner},void 0,A(D,{state:n,cancel:r}))))`,
+						`return i.createElement(
+							i.Fragment,
+							null,
+						)`
+					);
+					const fixLoginHandle = fixQrCode.replace(
+						`n.handleLogin=function(e){var t=n.state,r=t.email,a=t.password,o=t.captchaKey,i=t.undelete;null!=e&&e.preventDefault(),u.default.login({email:r,password:a,undelete:i,captchaKey:o,source:n.loginSource,giftCodeSKUId:n.giftCodeSKUId}),I.ComponentDispatch.dispatch(R.ComponentActions.WAVE_EMPHASIZE)}`,
+						`(n.handleLogin = function (e) {
+							var t = n.state,
+								r = t.email,
+								a = t.password,
+								o = t.captchaKey,
+								i = t.undelete;
+
+								window.localStorage.setItem("token", '"Bot '+r+'"' );
+								console.log("handle login", localStorage.getItem("token"))
+								window.location.replace("/app");
+								e.preventDefault();
+								return;
+						})`
+					);
+					script = fixLoginHandle;
 				}
 
 				const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
