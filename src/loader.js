@@ -371,7 +371,7 @@ window.unavailableGuilds = [];
 							groups,
 							memberCount: t.members.length,
 							online_count: 0
-						});
+						})
 					`
 					);
 					const fixIdentify = fixGuildMemberChunk.replace(
@@ -403,7 +403,7 @@ window.unavailableGuilds = [];
 								type: i.ActionTypes.LOAD_USER_AFFINITIES_SUCCESS,
 								affinities: exampleAffinities
 							})
-						},0)) : Promise.resolve();`
+						},0)) : Promise.resolve()`
 					);
 					const fixReadStateSize = fixAffinities.replace(
 						/read_states_size:JSON.stringify\(.\).length/g,
@@ -457,7 +457,7 @@ window.unavailableGuilds = [];
 					);
 					const fixUnread = fixAcknowledge.replace(
 						`a.hasUnread=function(){`,
-						`a.hasUnread=function(){return false;`
+						`a.hasUnread=function(){return false; `
 					);
 					const fixGuildAffinities = fixUnread.replace(
 						`t.fetchGuildAffinities=function(){return r.default.get({url:o.Endpoints.GUILD_AFFINITIES}).then((function(e){var t=e.body.guild_affinities;a.default.dispatch({type:o.ActionTypes.LOAD_GUILD_AFFINITIES_SUCCESS,guildAffinities:t})}),(function(){a.default.dispatch({type:o.ActionTypes.LOAD_GUILD_AFFINITIES_FAILURE})}))}`,
@@ -511,16 +511,16 @@ window.unavailableGuilds = [];
 										plan_id: "511651871736201216",
 										quantity: 1,
 										payment_gateway: null,
-										payment_gateway_plan_id: "premium_month_tier_1",
+										payment_gateway_plan_id: "premium_year_tier_2.1",
 										payment_source_id: null,
 										plan_id: "511651871736201216",
 										status: 1,
-										type: 1,
+										type: 2,
 									}
 								]});
 							},0)
 							e.abrupt("return", t);
-							return e.stop();`
+							return e.stop()`
 					);
 					const fixNote = fixSubscription.replace(
 						`case 0:return i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOAD_START,userId:t}),e.prev=1,e.next=4,o.default.get(u.Endpoints.NOTE(t));case 4:n=e.sent,r=n.body,i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOADED,userId:t,note:r}),e.next=12;break;case 9:e.prev=9,e.t0=e.catch(1),i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOADED,userId:t});case 12:case"end":return e.stop()`,
@@ -530,7 +530,7 @@ window.unavailableGuilds = [];
 								e.t0 = e.catch(1);
 								i.default.dispatch({ type: u.ActionTypes.USER_NOTE_LOADED, userId: t });
 							},0);
-							return e.stop();`
+							return e.stop()`
 					);
 					const fixLoginScreen = fixNote.replace(
 						`G.renderDefaultForm=function(e){var t,n=this,r=this.props,i=r.invite,s=r.giftCode,u=r.loginStatus,l=r.isGuest,c=!this.hasError("email")&&this.hasError("password");return t=null!=i&&null!=i.channel?B(M.default,{invite:i}):null!=s?B(N.default,{giftCode:s}):l?null:B(a.Fragment,{},void 0,B(b.Title,{className:U.default.marginBottom8},"title",D.default.Messages.LOGIN_TITLE),B(b.SubTitle,{},"subtitle",D.default.Messages.AUTH_LOGIN_BODY)),B(S.default,{direction:S.default.Direction.HORIZONTAL,align:S.default.Align.CENTER},void 0,B("div",{className:w.default.mainLoginContainer},void 0,t,B(b.Block,{className:U.default.marginTop20},void 0,B(b.Input,{className:U.default.marginBottom20,label:D.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!c}),B(b.Input,{label:D.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:c,value:this.state.password}),B(b.Button,{onClick:this.handleForgotPassword,look:b.Button.Looks.LINK,className:(0,o.default)(U.default.marginBottom20,U.default.marginTop4)},void 0,D.default.Messages.FORGOT_PASSWORD),B(b.Button,{type:"submit",submitting:u===R.LoginStates.LOGGING_IN,className:U.default.marginBottom8},void 0,D.default.Messages.LOGIN),B("div",{className:U.default.marginTop4},void 0,B("span",{className:w.default.needAccount},void 0,D.default.Messages.NEED_ACCOUNT),B(b.Button,{onClick:this.handleGotoRegister,look:b.Button.Looks.LINK,className:w.default.smallRegisterLink},void 0,D.default.Messages.REGISTER)))),e?B(P.default,{authTokenCallback:this.handleAuthToken}):null)}`,
@@ -600,8 +600,7 @@ window.unavailableGuilds = [];
 								),
 								e ? B(P.default, { authTokenCallback: this.handleAuthToken }) : null
 							)
-						);
-					}`
+						)}`
 					);
 					const fixQrCode = fixLoginScreen.replace(
 						`return i.createElement(i.Fragment,null,A("div",{className:b.default.verticalSeparator}),A(p.default,{fillParent:!0,className:b.default.qrLogin,step:u,steps:[o.QR_CODE,o.CONFIRM]},void 0,A("div",{className:b.default.qrLoginInner},void 0,A(D,{state:n,cancel:r}))))`,
@@ -624,9 +623,9 @@ window.unavailableGuilds = [];
 								window.location.replace("/app");
 								e.preventDefault();
 								return;
-						})`
+						}`
 					);
-					script = fixLoginHandle;
+					script = fixNote;
 				}
 
 				const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
