@@ -307,6 +307,8 @@ window.unavailableGuilds = [];
 
 					const varname = fixedLogin.match(/...on\("disconnect"/g)[0].slice(0, 2);
 
+					console.log("varname", varname);
+
 					const fixedReady = fixedLogin.replace(
 						`switch(e){case"READY":`,
 						`if (e !== 'PRESENCE_UPDATE') console.log(e,t)
@@ -452,7 +454,7 @@ window.unavailableGuilds = [];
 
 						console.log("force emit GUILD_MEMBER_LIST_UPDATE")
 
-						se._events.dispatch(x.ActionTypes.GUILD_MEMBER_LIST_UPDATE, {
+						${varname}._events.dispatch(x.ActionTypes.GUILD_MEMBER_LIST_UPDATE, {
 							guild_id: t.guild_id,
 							id: "everyone",
 							ops: ops,
