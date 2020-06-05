@@ -1,21 +1,34 @@
 {
-  "name": "discord-bot-client",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
-  },
-  "devDependencies": {
-    "js-beautify": "^1.11.0"
-  }
+	"name": "discord-bot-client",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --progress --colors --watch",
+		"start": "node index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.3.4",
+		"@babel/preset-env": "^7.3.4",
+		"@babel/preset-react": "^7.0.0",
+		"@babel/register": "^7.0.0",
+		"babel-loader": "^8.0.6",
+		"circular-dependency-plugin": "^5.0.2",
+		"gulp": "^4.0.0",
+		"gulp-babel-minify": "^0.5.1",
+		"gulp-csso": "^3.0.1",
+		"gulp-rename": "^1.4.0",
+		"js-beautify": "^1.11.0",
+		"module": "^1.2.5",
+		"node-fetch": "^2.6.0",
+		"timers-browserify": "^2.0.11",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11"
+	}
 }
