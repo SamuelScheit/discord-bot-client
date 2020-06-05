@@ -1,5 +1,5 @@
 # Discord Bot Client
-Allows you to use your bot, just like any other user account, except Friends, Groups and Voice
+Allows you to use your bot, just like any other user account, except Friends, Groups
 
 ## [Demo](https://discordclient.com/)
 Direct host of the Github Repository without modifications
@@ -25,18 +25,19 @@ Now navigate to http://localhost:3000/
 - Messages (Send, View History, Embeds, View Reactions, Add/Remove Reactions, Delete, Edit, Pin)
 - Create a Guild (if the bot has fewer than 10 Servers)
 - Even supports mobile smartphones
+- Voice Support
 
 ## DM
 If you load the page, DM's will show up, if a new user writes the bot then you can answer him
 
 ## Planned Features
+- Better Discord support
 - Direct Messages (DM) history list
 - Change Status
 - React with other emojis (Nitro)
 - GIF Search
 - Send Files
-- Voice Support
-- See Guild members
+- See Guild members in the side bar (you can see them in the server dropdown menu under members)
 
 ## Not supported by discord api
 - Message search
