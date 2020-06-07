@@ -289,7 +289,7 @@ window.unavailableGuilds = [];
 							t.experiments = [
 							];
 							window.waitingReady = t;
-							if (!t.guilds[0].unavailable||true) {
+							if ((t.guilds[0] && !t.guilds[0].unavailable) || true) {
 								${varname}._events.dispatch("BOTREADY",window.waitingReady);
 							}
 							break;
