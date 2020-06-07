@@ -378,18 +378,7 @@ window.unavailableGuilds = [];
 						`compress:`,
 						`shard: ${JSON.stringify(shard)},compress:`
 					);
-					const fixPresence = fixIdentify.replace(
-						/presence:.,/g,
-						`presence: {
-							since: null,
-							game: {
-								name: "discordclient.com • Login to your Bot",
-								type: 1
-							},
-							status: "online",
-							afk: false
-						},`
-					);
+					const fixPresence = fixIdentify.replace(/presence:.,/g, `presence: null,`);
 					const fixLocalStorage = fixPresence.replace(`delete window.localStorage`, "");
 					const fixLibraryApplications = fixLocalStorage.replace(
 						/libraryApplications:..body/g,
