@@ -256,7 +256,7 @@ window.unavailableGuilds = [];
 								developer_mode: true,
 								detect_platform_accounts: true,
 								default_guilds_restricted: false,
-								custom_status: { text: "#"+t.user.discriminator, expires_at: null, emoji_name: null, emoji_id: null },
+								custom_status: { text: null, expires_at: null, emoji_name: null, emoji_id: null },
 								convert_emoticons: false,
 								contact_sync_enabled: false,
 								animate_emoji: true,
