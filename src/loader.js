@@ -1,7 +1,5 @@
 window.unavailableGuilds = [];
 
-document.querySelector("#clearcacheImg").style.display = "none";
-
 (async () => {
 	var loaded = 0;
 	var pending = 0;
