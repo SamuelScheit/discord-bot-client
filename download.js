@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 (async () => {
 	var res = await fetch("https://discord.com/app");
 	var text = await res.text();
+	const loader = fs.readFileSync(__dirname + "/src/loader.js", { encoding: "utf8" });
 
 	const scripts = text.match(/\/assets\/\w+\.js/g);
 	const fixedAssets = text.replace(/(?<!https:\/\/(\w|\.)+)\/assets\//g, "https://discord.com/assets/");
@@ -12,10 +13,13 @@ const fetch = require("node-fetch");
 	const insertedScript = excludedScripts.insertSearch(
 		"</body>",
 		`
+		<style>html,body{background-color:#303136;}</style>
 	<script>
 	window.assets = ${JSON.stringify(scripts)}
 	</script>
-	<script src="/src/loader.js"></script>
+	<script>
+		${loader}
+	</script>
 	`
 	);
 
