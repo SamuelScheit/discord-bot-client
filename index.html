@@ -55,8 +55,8 @@
 				PROJECT_ENV: "production",
 				REMOTE_AUTH_ENDPOINT: "//remote-auth-gateway.discord.gg",
 				SENTRY_TAGS: { buildId: "d9b3bbf", buildType: "normal" },
-				MIGRATION_SOURCE_ORIGIN: "https://discordapp.com",
-				MIGRATION_DESTINATION_ORIGIN: "https://discord.com",
+				MIGRATION_SOURCE_ORIGIN: "//discordapp.com",
+				MIGRATION_DESTINATION_ORIGIN: "//discord.com",
 				HTML_TIMESTAMP: Date.now(),
 				ALGOLIA_KEY: "aca0d7082e4e63af5ba5917d5e96bed0",
 			};
@@ -74,6 +74,8 @@
 						},
 						e = n("token"),
 						o = n("gatewayURL");
+					console.log(o);
+
 					if (e && o && !window.__OVERLAY__) {
 						var r = null != window.DiscordNative || null != window.require ? "etf" : "json",
 							t = o + "/?encoding=" + r + "&v=6&compress=zlib-stream";
@@ -135,6 +137,19 @@
 						// }, 4000);
 					}
 				}
+
+				const target = {
+					message1: "hello",
+					message2: "everyone",
+				};
+
+				const handler2 = {
+					get: function (target, prop, receiver) {
+						return "world";
+					},
+				};
+
+				const proxy2 = new Proxy(target, handler2);
 
 				const token = (localStorage.getItem("token") || "").slice(1, -1);
 
@@ -724,7 +739,16 @@
 								return;
 						}`
 								);
-								script = fixNote;
+								var fixProtocol = fixNote.replace("+location.protocol", `+"https:"`);
+								fixProtocol = fixProtocol.replace("?location.protocol", `?"https:"`);
+								fixProtocol = fixProtocol.replace("(location.protocol", `("https:"`);
+								fixProtocol = fixProtocol.replace("slocation.protocol", ` "https:"`);
+								fixProtocol = fixProtocol.replace(":location.protocol", `:"https:"`);
+								fixProtocol = fixProtocol.replace("=location.protocol", `="https:"`);
+								fixProtocol = fixProtocol.replace(",location.protocol", `,"https:"`);
+								fixProtocol = fixProtocol.replace("|location.protocol", `|"https:"`);
+								fixProtocol = fixProtocol.replace("window.location.protocol", `"https:"`);
+								script = fixProtocol;
 							}
 
 							const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");

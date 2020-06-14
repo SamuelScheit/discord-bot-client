@@ -29,6 +29,19 @@ window.unavailableGuilds = [];
 		}
 	}
 
+	const target = {
+		message1: "hello",
+		message2: "everyone",
+	};
+
+	const handler2 = {
+		get: function (target, prop, receiver) {
+			return "world";
+		},
+	};
+
+	const proxy2 = new Proxy(target, handler2);
+
 	const token = (localStorage.getItem("token") || "").slice(1, -1);
 
 	try {
@@ -614,7 +627,16 @@ window.unavailableGuilds = [];
 								return;
 						}`
 					);
-					script = fixNote;
+					var fixProtocol = fixNote.replace("+location.protocol", `+"https:"`);
+					fixProtocol = fixProtocol.replace("?location.protocol", `?"https:"`);
+					fixProtocol = fixProtocol.replace("(location.protocol", `("https:"`);
+					fixProtocol = fixProtocol.replace("slocation.protocol", ` "https:"`);
+					fixProtocol = fixProtocol.replace(":location.protocol", `:"https:"`);
+					fixProtocol = fixProtocol.replace("=location.protocol", `="https:"`);
+					fixProtocol = fixProtocol.replace(",location.protocol", `,"https:"`);
+					fixProtocol = fixProtocol.replace("|location.protocol", `|"https:"`);
+					fixProtocol = fixProtocol.replace("window.location.protocol", `"https:"`);
+					script = fixProtocol;
 				}
 
 				const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
