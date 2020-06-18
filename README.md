@@ -5,6 +5,15 @@ Allows you to use your bot, just like any other user account, except Friends, Gr
 Direct host of the Github Repository without modifications
 WIP
 
+## Docker
+To run the discord bot client in a docker container, you can just run:
+```
+docker run -p 8080:3000 -d flam3rboy/discord-bot-client
+```
+This will start the server on: http://localhost:8080 
+
+Alternative you can install it locally on your system:
+
 ## Install
 - Install [Nodejs](https://nodejs.org/en/download/)
 - Install Dependencies:
