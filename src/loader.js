@@ -50,6 +50,7 @@ window.unavailableGuilds = [];
 			headers: {
 				Authorization: `${token}`,
 			},
+			referrerPolicy: "no-referrer",
 		});
 		gateway = await gateway.json();
 		var shards = gateway.shards;
@@ -72,14 +73,16 @@ window.unavailableGuilds = [];
 
 			pending++;
 			try {
-				var script = await fetch(url);
+				var script = await fetch(url, {
+					referrerPolicy: "no-referrer",
+				});
 				script = await script.text();
 				console.log("loaded " + asset);
 				if (script.includes(`.rel="stylesheet",i.type="text/css",i.on`)) {
 					// discord loader script
 					const fixAsyncFunc = script.replace(`r.e=function(e){`, `r.e=async function(e){`);
 					const fixSrc = fixAsyncFunc.replace(`,n.src=`, `;var res = await (await fetch(`);
-					const fixFetch = fixSrc.replace(`}(e);`, `}(e))).text();`);
+					const fixFetch = fixSrc.replace(`}(e);`, `}(e)), referrerPolicy: "no-referrer",).text();`);
 
 					const handleInlineLoad = (res) => {
 						if (res.includes(`._handleDispatch=function(`)) {
@@ -204,7 +207,9 @@ window.unavailableGuilds = [];
 					workerID = workerID.slice(0, workerID.indexOf(`")`));
 					console.log({ workerID });
 
-					var worker = await fetch(endpoint + "/assets/" + workerID);
+					var worker = await fetch(endpoint + "/assets/" + workerID, {
+						referrerPolicy: "no-referrer",
+					});
 					worker = btoa(await worker.text());
 
 					const fixedWorker = script.replace(
