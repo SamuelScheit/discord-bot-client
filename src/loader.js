@@ -277,18 +277,19 @@ window.unavailableGuilds = [];
 								afk_timeout: 600,
 							}
 							t.read_state = {entries: [],partial: false, version: 4899}
-							t.user_guild_settings = t.guilds.map(x=>{
-								return {
-									channel_overrides: {},
-									guild_id: x.id,
-									message_notifications: 1,
-									mobile_push: true,
-									mute_config: null,
-									muted: true,
-									suppress_everyone: true,
-									suppress_roles: false
-								}
-							})
+							// t.user_guild_settings = t.guilds.map(x=>{
+							// 	return {
+							// 		channel_overrides: {},
+							// 		guild_id: x.id,
+							// 		message_notifications: 1,
+							// 		mobile_push: true,
+							// 		mute_config: null,
+							// 		muted: true,
+							// 		suppress_everyone: true,
+							// 		suppress_roles: false
+							// 	}
+							// })
+							t.user_guild_settings = []
 							t.tutorial = null;
 							t.analytics_token = "MzExMTI5MzU3MzYyMTM1MDQx.Fe9r5AzjYcn9UnFgiUESCfx0I8s"
 							t.connected_accounts = []
