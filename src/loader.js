@@ -50,7 +50,6 @@ window.unavailableGuilds = [];
 			headers: {
 				Authorization: `${token}`,
 			},
-			referrerPolicy: "no-referrer",
 		});
 		gateway = await gateway.json();
 		var shards = gateway.shards;
@@ -66,7 +65,7 @@ window.unavailableGuilds = [];
 
 	await Promise.all(
 		window.assets.map(async (asset) => {
-			var endpoint = "https://yacdn.org/serve/"+GLOBAL_ENV.ASSET_ENDPOINT;
+			var endpoint = "https://yacdn.org/serve/" + GLOBAL_ENV.ASSET_ENDPOINT;
 			var type = asset.match(/\.\w+/g)[0].slice(1);
 
 			var url = asset.startsWith("http") ? asset : endpoint + asset;
@@ -82,7 +81,7 @@ window.unavailableGuilds = [];
 					// discord loader script
 					const fixAsyncFunc = script.replace(`r.e=function(e){`, `r.e=async function(e){`);
 					const fixSrc = fixAsyncFunc.replace(`,n.src=`, `;var res = await (await fetch(`);
-					const fixFetch = fixSrc.replace(`}(e);`, `}(e)), referrerPolicy: "no-referrer",).text();`);
+					const fixFetch = fixSrc.replace(`}(e);`, `}(e))).text();`);
 
 					const handleInlineLoad = (res) => {
 						if (res.includes(`._handleDispatch=function(`)) {
