@@ -66,7 +66,7 @@ window.unavailableGuilds = [];
 
 	await Promise.all(
 		window.assets.map(async (asset) => {
-			var endpoint = GLOBAL_ENV.ASSET_ENDPOINT;
+			var endpoint = "https://yacdn.org/serve/"+GLOBAL_ENV.ASSET_ENDPOINT;
 			var type = asset.match(/\.\w+/g)[0].slice(1);
 
 			var url = asset.startsWith("http") ? asset : endpoint + asset;
