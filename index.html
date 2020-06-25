@@ -108,6 +108,39 @@
 	</script>
 	<script>
 		window.unavailableGuilds = [];
+		var loading = [];
+		async function request(f) {
+			f = f.replace("/assets/", "").replace(/\//g, "")
+			var t = {
+				"07ca8d15cc9ad4ffc0f6.js": "",
+				"7288c77130c62ff8aa82.js": "",
+				"c05bdc0c5c3c90e28c77.js": "",
+				"eaa33f3c20d20e5d912d.js": "",
+				"507500d442ffd04ff63c.js": "",
+				"e1180c171e5a54377584.js":"Tq9bbG2k",
+				"d957722319139c2c6f69.worker.js": "taWp2uDJ",
+			}
+			var url = f;
+
+			var e = document.createElement("script")
+			e.src = `cdn/${url}`
+			document.body.appendChild(e);
+			var resolve;
+
+			var promise = new Promise(res=>{
+				resolve = res;
+			})
+
+			loading.push({file: f, promise: resolve})
+
+			return promise;
+		}
+
+		async function callback(file, text) {
+			var f = loading.find(x=>x.file===file)
+			if (!f) console.error("file not found:",f)
+			f.promise(text)
+		}
 
 		(async () => {
 			var loaded = 0;
@@ -174,23 +207,20 @@
 
 			await Promise.all(
 				window.assets.map(async (asset) => {
-					var endpoint = "https://yacdn.org/serve/" + GLOBAL_ENV.ASSET_ENDPOINT;
+					var endpoint = GLOBAL_ENV.ASSET_ENDPOINT;
 					var type = asset.match(/\.\w+/g)[0].slice(1);
 
 					var url = asset.startsWith("http") ? asset : endpoint + asset;
 
 					pending++;
 					try {
-						var script = await fetch(url, {
-							referrerPolicy: "no-referrer",
-						});
-						script = await script.text();
+						var script = await request(asset)
 						console.log("loaded " + asset);
 						if (script.includes(`.rel="stylesheet",i.type="text/css",i.on`)) {
 							// discord loader script
 							const fixAsyncFunc = script.replace(`r.e=function(e){`, `r.e=async function(e){`);
-							const fixSrc = fixAsyncFunc.replace(`,n.src=`, `;var res = await (await fetch(`);
-							const fixFetch = fixSrc.replace(`}(e);`, `}(e))).text();`);
+							const fixSrc = fixAsyncFunc.replace(`,n.src=`, `;var res = await request(`);
+							const fixFetch = fixSrc.replace(`}(e);`, `}(e));`);
 
 							const handleInlineLoad = (res) => {
 								if (res.includes(`._handleDispatch=function(`)) {
@@ -315,7 +345,7 @@
 							workerID = workerID.slice(0, workerID.indexOf(`")`));
 							console.log({ workerID });
 
-							var worker = await fetch(endpoint + "/assets/" + workerID, {
+							var worker = await request(workerID, {
 								referrerPolicy: "no-referrer",
 							});
 							worker = btoa(await worker.text());
@@ -758,8 +788,8 @@
 
 						var element = document.createElement("script");
 
-						// element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
-						element.innerHTML = escapedSourceMap;
+						element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
+						// element.innerHTML = escapedSourceMap;
 						document.head.appendChild(element);
 					} catch (e) {
 						console.error(e);
