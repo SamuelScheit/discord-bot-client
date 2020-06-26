@@ -3,13 +3,14 @@ async function handleRequests(request) {
 	request = new Request(request);
 	var url = new URL(request.url);
 	var response;
-	var origin = Object.fromEntries(request.headers).origin || "https://discordclient.com";
+	var origin = Object.fromEntries(request.headers).origin || "https://dev.discordclient.com";
 	console.log(origin, Object.fromEntries(request.headers))
 	try {
 		var u = "https://discord.com" + url.pathname;
-		request.headers.origin = "https://discord.com"
 
-		var options = request;
+		var options = { ...request, headers: Object.fromEntries(request.headers) };
+		options.headers.origin = "https://discord.com"
+
 		if (u.includes("assets")) {
 			options = {
 				cf: {
@@ -21,15 +22,19 @@ async function handleRequests(request) {
 		}
 		response = await fetch(u, options);
 		console.log(u, request)
-		response = new Response(response.body, { ...response, status: 200, statusText: "OK" });
+		response = new Response(response.body, {
+			...response, status: 200, statusText: "OK", headers: {
+				...Object.fromEntries(response.headers),
+				"access-control-allow-method": "POST, GET, OPTIONS, DELETE, PUT",
+				"access-control-allow-origin": origin,
+				"access-control-allow-headers": "cookie,authorization,content-type,x-failed-requests,x-fingerprint,x-super-properties,if-none-match",
+				"access-control-allow-credentials": "true"
+			}
+		});
 	} catch (e) {
 		response = new Response(e.toString());
 	}
 
-	response.headers.set("access-control-allow-method", "POST, GET, OPTIONS, DELETE, PUT");
-	response.headers.set("access-control-allow-origin", origin);
-	response.headers.set("access-control-allow-headers", "cookie,authorization,content-type,x-failed-requests,x-fingerprint,x-super-properties");
-	response.headers.set("access-control-allow-credentials", "true")
 	console.log("response");
 	return response;
 }

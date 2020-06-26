@@ -508,11 +508,11 @@
 							const fixPresence = fixIdentify.replace(/presence:.,/g, `presence: null,`);
 							const fixLocalStorage = fixPresence.replace(`delete window.localStorage`, "");
 							const fixLibraryApplications = fixLocalStorage.replace(
-								/libraryApplications:..body/g,
+								"libraryApplications:t.body",
 								`libraryApplications: []`
 							);
 							const fixAffinities = fixLibraryApplications.replace(
-								/,..default.get\({url:i.Endpoints.USER_AFFINITIES,retries:e?3:0}\).then\(\(function\(e\){var t=e.body;a.default.dispatch\({type:i.ActionTypes.LOAD_USER_AFFINITIES_SUCCESS,affinities:t}\)}\),\(function\(\){a.default.dispatch\({type:i.ActionTypes.LOAD_USER_AFFINITIES_FAILURE}\)}\)\)\):Promise.resolve\(\)/g,
+								",r.default.get({url:i.Endpoints.USER_AFFINITIES,retries:e?3:0}).then((function(e){var t=e.body;a.default.dispatch({type:i.ActionTypes.LOAD_USER_AFFINITIES_SUCCESS,affinities:t})}),(function(){a.default.dispatch({type:i.ActionTypes.LOAD_USER_AFFINITIES_FAILURE})}))):Promise.resolve()",
 								`,setTimeout(()=>{
 							var exampleAffinities =  {"user_affinities": [], "inverse_user_affinities": []}
 							a.default.dispatch({
@@ -522,11 +522,11 @@
 						},0)) : Promise.resolve()`
 							);
 							const fixReadStateSize = fixAffinities.replace(
-								/read_states_size:JSON.stringify\(.\).length/g,
+								"read_states_size:JSON.stringify(s).length",
 								`read_states_size:0||console.log(s)`
 							);
 							const fixUserGuildSize = fixReadStateSize.replace(
-								/user_guild_settings_size:JSON.stringify\(.\).length/g,
+								"user_guild_settings_size:JSON.stringify(l).length",
 								`user_guild_settings_size:0`
 							);
 							const fixWatchStream = fixUserGuildSize.replace(
@@ -751,8 +751,18 @@
 							fixProtocol = fixProtocol.replace("|location.protocol", `|"https:"`);
 							fixProtocol = fixProtocol.replace("window.location.protocol", `"https:"`);
 
-							const fixXHRCookies = fixProtocol.replace("var t=this.xhr,n=this._formData||this._data;", `var t=this.xhr,n=this._formData||this._data;t.withCredentials = true;`)
-							script = fixXHRCookies;
+							const fixXHRCookies = fixProtocol.replace("var t=this.xhr,n=this._formData||this._data;", `var t=this.xhr,n=this._formData||this._data;if(this && this.url.includes("cors.flam3rboy.workers.dev")) {t.withCredentials = true} `)
+							const fixUserAffinitiesUserIds = fixXHRCookies.replace(`a.getUserAffinitiesUserIds=function(){var e=new Set;return s.userAffinties.forEach((function(t){e.add(t.user_id)})),e}`, `
+								a.getUserAffinitiesUserIds = function () {
+									var e = new Set();
+									return (
+										[].forEach(function (t) {
+											e.add(t.user_id);
+										}),
+										e
+									);
+								}`)
+							script = fixUserAffinitiesUserIds;
 						}
 
 						const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
