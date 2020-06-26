@@ -3,7 +3,7 @@ async function handleRequests(request) {
 	request = new Request(request);
 	var url = new URL(request.url);
 	var response;
-	var origin = Object.fromEntries(request.headers).origin || "https://dev.discordclient.com";
+	var origin = Object.fromEntries(request.headers).origin || "https://discordclient.com";
 	console.log(origin, Object.fromEntries(request.headers))
 	try {
 		var u = "https://discord.com" + url.pathname;
