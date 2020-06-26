@@ -750,7 +750,9 @@
 							fixProtocol = fixProtocol.replace(",location.protocol", `,"https:"`);
 							fixProtocol = fixProtocol.replace("|location.protocol", `|"https:"`);
 							fixProtocol = fixProtocol.replace("window.location.protocol", `"https:"`);
-							script = fixProtocol;
+
+							const fixXHRCookies = fixProtocol.replace("var t=this.xhr,n=this._formData||this._data;", `var t=this.xhr,n=this._formData||this._data;t.withCredentials = true;`)
+							script = fixXHRCookies;
 						}
 
 						const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
