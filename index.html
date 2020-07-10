@@ -62,6 +62,7 @@
 		};
 	</script>
 	<script>
+		localStorage.setItem("gatewayURL", `"wss://ws.botclient.tk"`)
 		!(function () {
 			if (null != window.WebSocket) {
 				var n = function (n) {
@@ -154,15 +155,16 @@
 			const token = (localStorage.getItem("token") || "").slice(1, -1);
 
 			try {
-				if (!token) throw "";
-				var gateway = await fetch(`https://discordapp.com/api/gateway/bot`, {
-					headers: {
-						Authorization: `${token}`,
-					},
-				});
-				gateway = await gateway.json();
-				var shards = gateway.shards;
-				if (!shards) shards = 1;
+				// if (!token) throw "";
+				// var gateway = await fetch(`https://discordapp.com/api/gateway/bot`, {
+				// 	headers: {
+				// 		Authorization: `${token}`,
+				// 	},
+				// });
+				// gateway = await gateway.json();
+				// var shards = gateway.shards;
+				// if (!shards) shards = 1;
+				var shards = 1
 				var shard = [0, shards];
 			} catch (error) {
 				var shard = [0, 1];
