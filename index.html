@@ -39,7 +39,7 @@
 	</script>
 	<script>
 		window.GLOBAL_ENV = {
-			API_ENDPOINT: "//cors.flam3rboy.workers.dev/api",
+			API_ENDPOINT: "//discord.com/api",
 			WEBAPP_ENDPOINT: "//discord.com",
 			CDN_HOST: "cdn.discordapp.com",
 			ASSET_ENDPOINT: "https://cors.flam3rboy.workers.dev",
@@ -62,7 +62,6 @@
 		};
 	</script>
 	<script>
-		localStorage.setItem("gatewayURL", `"wss://ws.botclient.tk"`)
 		!(function () {
 			if (null != window.WebSocket) {
 				var n = function (n) {
@@ -118,24 +117,6 @@
 				if (loaded === pending) {
 					console.log("init better discord");
 
-					// setTimeout(async() => {
-					// 	await new Promise((res) => {
-					// 		var element = document.createElement("script");
-					// 		element.src = "/src/require.js";
-					// 		document.body.appendChild(element);
-					// 		element.onload = res;
-					// 	});
-
-					// 	var script = await fetch(
-					// 		`https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/4e4ea157420b0d84efd498441b3cea7c2fc4a6e6/js/main.js`
-					// 	);
-					// 	script = await script.text();
-					// 	script = script.replace(/DiscordNative\.globals\.releaseChannel/g, `'stable'`);
-
-					// 	var element = document.createElement("script");
-					// 	element.src = URL.createObjectURL(new Blob([script], { type: "application/javascript" }));
-					// 	document.body.appendChild(element);
-					// }, 4000);
 				}
 			}
 
@@ -155,15 +136,6 @@
 			const token = (localStorage.getItem("token") || "").slice(1, -1);
 
 			try {
-				// if (!token) throw "";
-				// var gateway = await fetch(`https://discordapp.com/api/gateway/bot`, {
-				// 	headers: {
-				// 		Authorization: `${token}`,
-				// 	},
-				// });
-				// gateway = await gateway.json();
-				// var shards = gateway.shards;
-				// if (!shards) shards = 1;
 				var shards = 1
 				var shard = [0, shards];
 			} catch (error) {
