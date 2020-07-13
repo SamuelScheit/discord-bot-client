@@ -126,6 +126,12 @@
 			} catch (error) {
 				var shard = [0, 1];
 			}
+			
+			try {
+				localStorage.getItem("hi")
+			} catch(e) {
+				alert("You need to enable third party cookies for this website to work");
+			}
 
 			var jquery = document.createElement("script");
 			jquery.src = "https://code.jquery.com/jquery-3.5.1.min.js";
