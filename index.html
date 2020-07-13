@@ -120,21 +120,6 @@
 				}
 			}
 
-			const target = {
-				message1: "hello",
-				message2: "everyone",
-			};
-
-			const handler2 = {
-				get: function (target, prop, receiver) {
-					return "world";
-				},
-			};
-
-			const proxy2 = new Proxy(target, handler2);
-
-			const token = (localStorage.getItem("token") || "").slice(1, -1);
-
 			try {
 				var shards = 1
 				var shard = [0, shards];
