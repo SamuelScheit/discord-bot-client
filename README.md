@@ -5,8 +5,8 @@ Allows you to use your bot, just like any other user account, except Friends, Gr
 Direct host of the Github Repository without modifications
 WIP
 
-## [Tutorial](https://youtu.be/78mt-YcX4jw?t=154)
-[![Youtube Tutorial Login as bot](https://img.youtube.com/vi/78mt-YcX4jw/0.jpg)](https://youtu.be/78mt-YcX4jw?t=154)
+## [Tutorial](https://www.youtube.com/watch?v=_q3Hr2bsYr8)
+[![Youtube Tutorial Login as bot](https://img.youtube.com/vi/78mt-YcX4jw/0.jpg)](https://www.youtube.com/watch?v=_q3Hr2bsYr8)
 
 ## Functions
 - View Guilds (Lazy load them) 
