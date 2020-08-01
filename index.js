@@ -11,7 +11,6 @@ app.use("*", async (req, res, next) => {
 app.use("/src", express.static(__dirname + "/src"));
 
 app.use("*", async (req, res) => {
-	console.log(req.headers["x-forwarded-for"], req.headers["cf-ipcountry"]);
 	res.send(discordIndexHTML);
 });
 
