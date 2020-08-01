@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+	"name": "Discord Bot Client",
+	"version": "1.0.0",
+	"description": "This extension allows you to use https://botclient.tk",
+	"author": "Flam3rboy",
+	"background": {
+		"scripts": ["script.js"]
+	},
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"https://botclient.tk/",
+		"https://*.discord.com/",
+		"wss://gateway.discord.gg/"
+	],
+	"icons": {
+		"16": "images/16.jpg",
+		"32": "images/32.jpg",
+		"48": "images/48.jpg",
+		"96": "images/96.jpg",
+		"128": "images/128.jpg",
+		"256": "images/256.jpg"
+	}
+}
