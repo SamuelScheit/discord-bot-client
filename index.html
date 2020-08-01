@@ -42,7 +42,7 @@
 			API_ENDPOINT: "//discord.com/api",
 			WEBAPP_ENDPOINT: "//discord.com",
 			CDN_HOST: "cdn.discordapp.com",
-			ASSET_ENDPOINT: "https://q2497732f.tk",
+			ASSET_ENDPOINT: "https://discord.com",
 			WIDGET_ENDPOINT: "//discord.com/widget",
 			INVITE_HOST: "discord.gg",
 			GUILD_TEMPLATE_HOST: "discord.new",
@@ -139,7 +139,7 @@
 
 			await Promise.all(
 				window.assets.map(async (asset) => {
-					var endpoint = "https://q2497732f.tk";
+					var endpoint = GLOBAL_ENV.ASSET_ENDPOINT;
 					var type = asset.match(/\.\w+/g)[0].slice(1);
 
 					var url = asset.startsWith("http") ? asset : endpoint + asset;
