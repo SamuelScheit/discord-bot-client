@@ -5,27 +5,8 @@ Allows you to use your bot, just like any other user account, except Friends, Gr
 Direct host of the Github Repository without modifications
 WIP
 
-## Docker
-To run the discord bot client in a docker container, you can just run:
-```
-docker run -p 8080:3000 -d flam3rboy/discord-bot-client
-```
-This will start the server on: http://localhost:8080 
-
-Alternative you can install it locally on your system:
-
-## Install
-- Install [Nodejs](https://nodejs.org/en/download/)
-- Install Dependencies:
-```
-npm i
-```
-
-## Start
-```
-npm start
-```
-Now navigate to http://localhost:3000/
+## [Tutorial](https://www.youtube.com/watch?v=_q3Hr2bsYr8)
+[![Youtube Tutorial Login as bot](https://img.youtube.com/vi/_q3Hr2bsYr8/0.jpg)](https://www.youtube.com/watch?v=_q3Hr2bsYr8)
 
 ## Functions
 - View Guilds (Lazy load them) 
@@ -54,4 +35,28 @@ If you load the page, DM's will show up, if a new user writes the bot then you c
 - Friends
 - DM Groups
 - Join server with invite link
+
+
+## Docker
+To run the discord bot client in a docker container, you can just run:
+```
+docker run -p 8080:3000 -d flam3rboy/discord-bot-client
+```
+This will start the server on: http://localhost:8080 
+
+Alternative you can install it locally on your system:
+
+## Install
+- Install [Nodejs](https://nodejs.org/en/download/)
+- Install Dependencies:
+```
+npm i
+```
+
+## Start
+```
+npm start
+```
+Now navigate to http://localhost:3000/
+
 

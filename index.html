@@ -42,7 +42,7 @@
 			API_ENDPOINT: "//discord.com/api",
 			WEBAPP_ENDPOINT: "//discord.com",
 			CDN_HOST: "cdn.discordapp.com",
-			ASSET_ENDPOINT: "https://cors.flam3rboy.workers.dev",
+			ASSET_ENDPOINT: "https://discord.com",
 			WIDGET_ENDPOINT: "//discord.com/widget",
 			INVITE_HOST: "discord.gg",
 			GUILD_TEMPLATE_HOST: "discord.new",
@@ -62,6 +62,7 @@
 		};
 	</script>
 	<script>
+		localStorage.setItem("gatewayURL",`"wss://gateway.discord.gg"`);
 		!(function () {
 			if (null != window.WebSocket) {
 				var n = function (n) {
@@ -108,7 +109,7 @@
 	</script>
 	<script>
 		window.unavailableGuilds = [];
-
+		
 		(async () => {
 			var loaded = 0;
 			var pending = 0;
@@ -139,7 +140,7 @@
 
 			await Promise.all(
 				window.assets.map(async (asset) => {
-					var endpoint = "https://cors.flam3rboy.workers.dev";
+					var endpoint = GLOBAL_ENV.ASSET_ENDPOINT;
 					var type = asset.match(/\.\w+/g)[0].slice(1);
 
 					var url = asset.startsWith("http") ? asset : endpoint + asset;
