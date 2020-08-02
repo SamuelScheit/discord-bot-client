@@ -36,7 +36,6 @@
 				top: 0;
 				left: 0;
 				z-index: 1000;
-				display: flex;
 				justify-content: center;
 				align-items: center;
 				color: #dcddde;
@@ -66,7 +65,6 @@
 				<h1>
 					You need to use the
 					<a
-						target="_BLANK"
 						href="https://github.com/Flam3rboy/discord-bot-client/blob/master/extension.zip?raw=true"
 						id="extension-link"
 						>extension</a
@@ -169,7 +167,7 @@
 					await fetch("https://discord.com/api/users/@me");
 				} catch (error) {
 					var extension = document.querySelector("#extension-modal");
-					extension.style.display = "block";
+					extension.style.display = "flex";
 					console.log("return");
 					var link = document.querySelector("#extension-link");
 					link.href = "";
