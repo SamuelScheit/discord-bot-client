@@ -7,21 +7,18 @@
 
 		<!-- section:seometa -->
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Discord" />
-		<meta property="og:title" content="Discord - A New Way to Chat with Friends & Communities" />
-		<meta
-			property="og:description"
-			content="Discord is the easiest way to communicate over voice, video, and text.  Chat, hang out, and stay close with your friends and communities."
-		/>
+		<meta property="og:site_name" content="Discord Bot Client" />
+		<meta property="og:title" content="Discord Bot Client - login into your discord bot with a token" />
+		<meta property="og:description" content="Discord Bot Client - login into your discord bot with a token" />
 		<meta property="og:image" content="https://discord.com/assets/ee7c382d9257652a88c8f7b7f22a994d.png" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@discord" />
-		<meta name="twitter:creator" content="@discord" />
+		<meta name="twitter:site" content="@flam3rboy" />
+		<meta name="twitter:creator" content="@flam3rboy" />
 		<!-- endsection -->
 		<link rel="stylesheet" href="https://discord.com/assets/0.2d737cc92c807c265e1f.css" />
 		<link rel="icon" href="https://discord.com/assets/07dca80a102d4149e9736d4b162cff6f.ico" />
 		<!-- section:title -->
-		<title>Discord</title>
+		<title>Discord Bot Client</title>
 		<style>
 			html,
 			body {
@@ -801,7 +798,13 @@
 									);
 								}`
 								);
-								script = fixUserAffinitiesUserIds;
+								const fixHideToken = fixUserAffinitiesUserIds.replace(
+									"hideToken:function(){o.default.remove(i.TOKEN_KEY)}",
+									`
+								hideToken:function(){}
+								`
+								);
+								script = fixHideToken;
 							}
 
 							const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
