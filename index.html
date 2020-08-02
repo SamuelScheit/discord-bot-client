@@ -1,171 +1,237 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport" />
+		<meta name="referrer" content="no-referrer" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport" />
-	<meta name="referrer" content="no-referrer" />
+		<!-- section:seometa -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Discord" />
+		<meta property="og:title" content="Discord - A New Way to Chat with Friends & Communities" />
+		<meta
+			property="og:description"
+			content="Discord is the easiest way to communicate over voice, video, and text.  Chat, hang out, and stay close with your friends and communities."
+		/>
+		<meta property="og:image" content="https://discord.com/assets/ee7c382d9257652a88c8f7b7f22a994d.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@discord" />
+		<meta name="twitter:creator" content="@discord" />
+		<!-- endsection -->
+		<link rel="stylesheet" href="https://discord.com/assets/0.2d737cc92c807c265e1f.css" />
+		<link rel="icon" href="https://discord.com/assets/07dca80a102d4149e9736d4b162cff6f.ico" />
+		<!-- section:title -->
+		<title>Discord</title>
+		<style>
+			html,
+			body {
+				background-color: #303136;
+			}
 
-	<!-- section:seometa -->
-	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content="Discord" />
-	<meta property="og:title" content="Discord - A New Way to Chat with Friends & Communities" />
-	<meta property="og:description"
-		content="Discord is the easiest way to communicate over voice, video, and text.  Chat, hang out, and stay close with your friends and communities." />
-	<meta property="og:image" content="https://discord.com/assets/ee7c382d9257652a88c8f7b7f22a994d.png" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@discord" />
-	<meta name="twitter:creator" content="@discord" />
-	<!-- endsection -->
-	<link rel="stylesheet" href="https://discord.com/assets/0.2d737cc92c807c265e1f.css" />
-	<link rel="icon" href="https://discord.com/assets/07dca80a102d4149e9736d4b162cff6f.ico" />
-	<!-- section:title -->
-	<title>Discord</title>
-	<style>
-		html,
-		body {
-			background-color: #303136;
-		}
-	</style>
-</head>
+			#extension-modal {
+				display: none;
+				width: 100vw;
+				height: 100vh;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #dcddde;
+				text-align: center;
+			}
 
-<body>
-	<div id="app-mount"></div>
-	<script>
-		window.__OVERLAY__ = /overlay/.test(location.pathname);
-	</script>
-	<script>
-		window.__BILLING_STANDALONE__ = /^\/billing/.test(location.pathname);
-	</script>
-	<script>
-		window.GLOBAL_ENV = {
-			API_ENDPOINT: "//discord.com/api",
-			WEBAPP_ENDPOINT: "//discord.com",
-			CDN_HOST: "cdn.discordapp.com",
-			ASSET_ENDPOINT: "https://discord.com",
-			WIDGET_ENDPOINT: "//discord.com/widget",
-			INVITE_HOST: "discord.gg",
-			GUILD_TEMPLATE_HOST: "discord.new",
-			GIFT_CODE_HOST: "discord.gift",
-			RELEASE_CHANNEL: "stable",
-			MARKETING_ENDPOINT: "//discord.com",
-			BRAINTREE_KEY: "production_5st77rrc_49pp2rp4phym7387",
-			STRIPE_KEY: "pk_live_CUQtlpQUF0vufWpnpUmQvcdi",
-			NETWORKING_ENDPOINT: "//router.discordapp.net",
-			PROJECT_ENV: "production",
-			REMOTE_AUTH_ENDPOINT: "//remote-auth-gateway.discord.gg",
-			SENTRY_TAGS: { buildId: "d9b3bbf", buildType: "normal" },
-			MIGRATION_SOURCE_ORIGIN: "//discordapp.com",
-			MIGRATION_DESTINATION_ORIGIN: "//discord.com",
-			HTML_TIMESTAMP: Date.now(),
-			ALGOLIA_KEY: "aca0d7082e4e63af5ba5917d5e96bed0",
-		};
-	</script>
-	<script>
-		localStorage.setItem("gatewayURL",`"wss://gateway.discord.gg"`);
-		!(function () {
-			if (null != window.WebSocket) {
-				var n = function (n) {
-					try {
-						var e = localStorage.getItem(n);
-						return null == e ? null : JSON.parse(e);
-					} catch (n) {
-						return null;
+			#extension-modal a {
+				color: #00b0f4 !important;
+			}
+			#extension-modal h1 {
+				font-size: 80px;
+			}
+			#extension-modal h2 {
+				margin-top: 3rem;
+				font-size: 60px;
+			}
+			#extension-modal h5 {
+				margin-top: 3rem;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="extension-modal">
+			<div>
+				<h1>
+					You need to use the
+					<a
+						target="_BLANK"
+						href="https://github.com/Flam3rboy/discord-bot-client/blob/master/extension.zip?raw=true"
+						id="extension-link"
+						>extension</a
+					>
+					for the botclient to work
+				</h1>
+				<h2>
+					If you want easy installation you need to wait until Google/Firefox approves the extension
+				</h2>
+				<h5>
+					<strong>Why:</strong> Discord changed their servers, that the browser can't just download the source
+					code anymore.
+					<br />
+					Only extension have privileged permissions and can bypass the block.
+				</h5>
+			</div>
+		</div>
+		<div id="app-mount"></div>
+		<script>
+			window.__OVERLAY__ = /overlay/.test(location.pathname);
+		</script>
+		<script>
+			window.__BILLING_STANDALONE__ = /^\/billing/.test(location.pathname);
+		</script>
+		<script>
+			window.GLOBAL_ENV = {
+				API_ENDPOINT: "//discord.com/api",
+				WEBAPP_ENDPOINT: "//discord.com",
+				CDN_HOST: "cdn.discordapp.com",
+				ASSET_ENDPOINT: "https://discord.com",
+				WIDGET_ENDPOINT: "//discord.com/widget",
+				INVITE_HOST: "discord.gg",
+				GUILD_TEMPLATE_HOST: "discord.new",
+				GIFT_CODE_HOST: "discord.gift",
+				RELEASE_CHANNEL: "stable",
+				MARKETING_ENDPOINT: "//discord.com",
+				BRAINTREE_KEY: "production_5st77rrc_49pp2rp4phym7387",
+				STRIPE_KEY: "pk_live_CUQtlpQUF0vufWpnpUmQvcdi",
+				NETWORKING_ENDPOINT: "//router.discordapp.net",
+				PROJECT_ENV: "production",
+				REMOTE_AUTH_ENDPOINT: "//remote-auth-gateway.discord.gg",
+				SENTRY_TAGS: { buildId: "d9b3bbf", buildType: "normal" },
+				MIGRATION_SOURCE_ORIGIN: "//discordapp.com",
+				MIGRATION_DESTINATION_ORIGIN: "//discord.com",
+				HTML_TIMESTAMP: Date.now(),
+				ALGOLIA_KEY: "aca0d7082e4e63af5ba5917d5e96bed0",
+			};
+		</script>
+		<script>
+			localStorage.setItem("gatewayURL", `"wss://gateway.discord.gg"`);
+			!(function () {
+				if (null != window.WebSocket) {
+					var n = function (n) {
+							try {
+								var e = localStorage.getItem(n);
+								return null == e ? null : JSON.parse(e);
+							} catch (n) {
+								return null;
+							}
+						},
+						e = n("token"),
+						o = n("gatewayURL");
+					console.log(o);
+
+					if (e && o && !window.__OVERLAY__) {
+						var r = null != window.DiscordNative || null != window.require ? "etf" : "json",
+							t = o + "/?encoding=" + r + "&v=6&compress=zlib-stream";
+						console.log("[FAST CONNECT] " + t + ", encoding: " + r + ", version: 6");
+						var a = new WebSocket(t);
+						a.binaryType = "arraybuffer";
+						var s = Date.now(),
+							i = { open: !1, gateway: t, messages: [] };
+						(a.onopen = function () {
+							console.log("[FAST CONNECT] connected in " + (Date.now() - s) + "ms"), (i.open = !0);
+						}),
+							(a.onclose = a.onerror = function () {
+								window._ws = null;
+							}),
+							(a.onmessage = function (n) {
+								i.messages.push(n);
+							}),
+							(window._ws = { ws: a, state: i });
 					}
-				},
-					e = n("token"),
-					o = n("gatewayURL");
-				console.log(o);
-
-				if (e && o && !window.__OVERLAY__) {
-					var r = null != window.DiscordNative || null != window.require ? "etf" : "json",
-						t = o + "/?encoding=" + r + "&v=6&compress=zlib-stream";
-					console.log("[FAST CONNECT] " + t + ", encoding: " + r + ", version: 6");
-					var a = new WebSocket(t);
-					a.binaryType = "arraybuffer";
-					var s = Date.now(),
-						i = { open: !1, gateway: t, messages: [] };
-					(a.onopen = function () {
-						console.log("[FAST CONNECT] connected in " + (Date.now() - s) + "ms"), (i.open = !0);
-					}),
-						(a.onclose = a.onerror = function () {
-							window._ws = null;
-						}),
-						(a.onmessage = function (n) {
-							i.messages.push(n);
-						}),
-						(window._ws = { ws: a, state: i });
 				}
-			}
-		})();
-	</script>
-	<script>
-		window.assets = [
-			"/assets/e1180c171e5a54377584.js",
-			"/assets/07ca8d15cc9ad4ffc0f6.js",
-			"/assets/c05bdc0c5c3c90e28c77.js",
-			"/assets/7288c77130c62ff8aa82.js",
-		];
-	</script>
-	<script>
-		window.unavailableGuilds = [];
-		
-		(async () => {
-			var loaded = 0;
-			var pending = 0;
-			async function finishedLoading() {
-				loaded++;
-				if (loaded === pending) {
-					console.log("init better discord");
+			})();
+		</script>
+		<script>
+			window.assets = [
+				"/assets/e1180c171e5a54377584.js",
+				"/assets/07ca8d15cc9ad4ffc0f6.js",
+				"/assets/c05bdc0c5c3c90e28c77.js",
+				"/assets/7288c77130c62ff8aa82.js",
+			];
+		</script>
+		<script>
+			window.unavailableGuilds = [];
 
+			(async () => {
+				try {
+					await fetch("https://discord.com/api/users/@me");
+				} catch (error) {
+					var extension = document.querySelector("#extension-modal");
+					extension.style.display = "block";
+					console.log("return");
+					var link = document.querySelector("#extension-link");
+					link.href = "";
+					return;
 				}
-			}
 
-			try {
-				var shards = 1
-				var shard = [0, shards];
-			} catch (error) {
-				var shard = [0, 1];
-			}
-			
-			try {
-				localStorage.getItem("hi")
-			} catch(e) {
-				alert("You need to enable third party cookies for this website to work");
-			}
+				console.log("continue");
 
-			var jquery = document.createElement("script");
-			jquery.src = "https://code.jquery.com/jquery-3.5.1.min.js";
-			document.body.appendChild(jquery);
+				var loaded = 0;
+				var pending = 0;
+				async function finishedLoading() {
+					loaded++;
+					if (loaded === pending) {
+						console.log("init better discord");
+					}
+				}
 
-			await Promise.all(
-				window.assets.map(async (asset) => {
-					var endpoint = GLOBAL_ENV.ASSET_ENDPOINT;
-					var type = asset.match(/\.\w+/g)[0].slice(1);
+				try {
+					var shards = 1;
+					var shard = [0, shards];
+				} catch (error) {
+					var shard = [0, 1];
+				}
 
-					var url = asset.startsWith("http") ? asset : endpoint + asset;
+				try {
+					localStorage.getItem("hi");
+				} catch (e) {
+					alert("You need to enable third party cookies for this website to work");
+				}
 
-					pending++;
-					try {
-						var script = await fetch(url, {
-							referrerPolicy: "no-referrer",
-						});
-						script = await script.text();
-						console.log("loaded " + asset);
-						if (script.includes(`.rel="stylesheet",i.type="text/css",i.on`)) {
-							// discord loader script
-							const fixAsyncFunc = script.replace(`r.e=function(e){`, `r.e=async function(e){`);
-							const fixSrc = fixAsyncFunc.replace(`,n.src=`, `;var res = await (await fetch(`);
-							const fixFetch = fixSrc.replace(`}(e);`, `}(e))).text();`);
+				var jquery = document.createElement("script");
+				jquery.src = "https://code.jquery.com/jquery-3.5.1.min.js";
+				document.body.appendChild(jquery);
 
-							const handleInlineLoad = (res) => {
-								if (res.includes(`._handleDispatch=function(`)) {
-									console.log("patch login screen");
+				await Promise.all(
+					window.assets.map(async (asset) => {
+						var endpoint = GLOBAL_ENV.ASSET_ENDPOINT;
+						var type = asset.match(/\.\w+/g)[0].slice(1);
 
-									// const fixReadState = res.replace(/=..read_state/g, "=[]");
-									const fixLoginScreen = res.replace(
-										`G.renderDefaultForm=function(e){var t,n=this,r=this.props,a=r.invite,o=r.giftCode,u=r.loginStatus,f=r.isGuest,d=!this.hasError("email")&&this.hasError("password");return t=null!=a&&null!=a.channel?F(D.default,{invite:a}):null!=o?F(C.default,{giftCode:o}):f?null:F(i.Fragment,{},void 0,F(T.Title,{className:L.default.marginBottom8},"title",M.default.Messages.LOGIN_TITLE),F(T.SubTitle,{},"subtitle",M.default.Messages.AUTH_LOGIN_BODY)),F(I.default,{direction:I.default.Direction.HORIZONTAL,align:I.default.Align.CENTER},void 0,F("div",{className:R.default.mainLoginContainer},void 0,t,F(T.Block,{className:L.default.marginTop20},void 0,F(T.Input,{className:L.default.marginBottom20,label:M.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!d}),F(T.Input,{label:M.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:d,value:this.state.password}),F(T.Button,{onClick:this.handleForgotPassword,look:T.Button.Looks.LINK,className:(0,s.default)(L.default.marginBottom20,L.default.marginTop4)},void 0,M.default.Messages.FORGOT_PASSWORD),F(T.Button,{type:"submit",submitting:u===k.LoginStates.LOGGING_IN,className:L.default.marginBottom8},void 0,M.default.Messages.LOGIN),F("div",{className:L.default.marginTop4},void 0,F("span",{className:R.default.needAccount},void 0,M.default.Messages.NEED_ACCOUNT),F(T.Button,{onClick:this.handleGotoRegister,look:T.Button.Looks.LINK,className:R.default.smallRegisterLink},void 0,M.default.Messages.REGISTER)))),e?F(N.default,{authTokenCallback:this.handleAuthToken}):null)}`,
-										`G.renderDefaultForm = function (e) {
+						var url = asset.startsWith("http") ? asset : endpoint + asset;
+
+						pending++;
+						try {
+							var script = await fetch(url, {
+								referrerPolicy: "no-referrer",
+							});
+							script = await script.text();
+							console.log("loaded " + asset);
+							if (script.includes(`.rel="stylesheet",i.type="text/css",i.on`)) {
+								// discord loader script
+								const fixAsyncFunc = script.replace(`r.e=function(e){`, `r.e=async function(e){`);
+								const fixSrc = fixAsyncFunc.replace(`,n.src=`, `;var res = await (await fetch(`);
+								const fixFetch = fixSrc.replace(`}(e);`, `}(e))).text();`);
+
+								const handleInlineLoad = (res) => {
+									if (res.includes(`._handleDispatch=function(`)) {
+										console.log("patch login screen");
+
+										// const fixReadState = res.replace(/=..read_state/g, "=[]");
+										const fixLoginScreen = res.replace(
+											`G.renderDefaultForm=function(e){var t,n=this,r=this.props,a=r.invite,o=r.giftCode,u=r.loginStatus,f=r.isGuest,d=!this.hasError("email")&&this.hasError("password");return t=null!=a&&null!=a.channel?F(D.default,{invite:a}):null!=o?F(C.default,{giftCode:o}):f?null:F(i.Fragment,{},void 0,F(T.Title,{className:L.default.marginBottom8},"title",M.default.Messages.LOGIN_TITLE),F(T.SubTitle,{},"subtitle",M.default.Messages.AUTH_LOGIN_BODY)),F(I.default,{direction:I.default.Direction.HORIZONTAL,align:I.default.Align.CENTER},void 0,F("div",{className:R.default.mainLoginContainer},void 0,t,F(T.Block,{className:L.default.marginTop20},void 0,F(T.Input,{className:L.default.marginBottom20,label:M.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!d}),F(T.Input,{label:M.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:d,value:this.state.password}),F(T.Button,{onClick:this.handleForgotPassword,look:T.Button.Looks.LINK,className:(0,s.default)(L.default.marginBottom20,L.default.marginTop4)},void 0,M.default.Messages.FORGOT_PASSWORD),F(T.Button,{type:"submit",submitting:u===k.LoginStates.LOGGING_IN,className:L.default.marginBottom8},void 0,M.default.Messages.LOGIN),F("div",{className:L.default.marginTop4},void 0,F("span",{className:R.default.needAccount},void 0,M.default.Messages.NEED_ACCOUNT),F(T.Button,{onClick:this.handleGotoRegister,look:T.Button.Looks.LINK,className:R.default.smallRegisterLink},void 0,M.default.Messages.REGISTER)))),e?F(N.default,{authTokenCallback:this.handleAuthToken}):null)}`,
+											`G.renderDefaultForm = function (e) {
 									var t,
 										n = this,
 										r = this.props,
@@ -233,17 +299,17 @@
 										)
 									);
 								}`
-									);
-									const fixQrCode = fixLoginScreen.replace(
-										`return a.createElement(a.Fragment,null,O("div",{className:T.default.verticalSeparator}),O(_.default,{fillParent:!0,className:T.default.qrLogin,step:u,steps:[s.QR_CODE,s.CONFIRM]},void 0,O("div",{className:T.default.qrLoginInner},void 0,O(M,{state:n,cancel:r}))))`,
-										`return a.createElement(
+										);
+										const fixQrCode = fixLoginScreen.replace(
+											`return a.createElement(a.Fragment,null,O("div",{className:T.default.verticalSeparator}),O(_.default,{fillParent:!0,className:T.default.qrLogin,step:u,steps:[s.QR_CODE,s.CONFIRM]},void 0,O("div",{className:T.default.qrLoginInner},void 0,O(M,{state:n,cancel:r}))))`,
+											`return a.createElement(
 									a.Fragment,
 									null
 								)`
-									);
-									const fixLoginHandle = fixQrCode.replace(
-										`n.handleLogin=function(e){var t=n.state,r=t.email,i=t.password,s=t.captchaKey,a=t.undelete;null!=e&&e.preventDefault(),u.default.login({email:r,password:i,undelete:a,captchaKey:s,source:n.loginSource,giftCodeSKUId:n.giftCodeSKUId}),A.ComponentDispatch.dispatch(k.ComponentActions.WAVE_EMPHASIZE)}`,
-										`n.handleLogin = function (e) {
+										);
+										const fixLoginHandle = fixQrCode.replace(
+											`n.handleLogin=function(e){var t=n.state,r=t.email,i=t.password,s=t.captchaKey,a=t.undelete;null!=e&&e.preventDefault(),u.default.login({email:r,password:i,undelete:a,captchaKey:s,source:n.loginSource,giftCodeSKUId:n.giftCodeSKUId}),A.ComponentDispatch.dispatch(k.ComponentActions.WAVE_EMPHASIZE)}`,
+											`n.handleLogin = function (e) {
 									var t = n.state,
 										r = t.email,
 										i = t.password,
@@ -256,62 +322,62 @@
 									e.preventDefault();
 									return;
 								}`
-									);
-									res = fixLoginHandle;
-								}
-							};
+										);
+										res = fixLoginHandle;
+									}
+								};
 
-							var t = handleInlineLoad.toString();
-							t = t.slice(t.indexOf("\n") + 1, -2);
+								var t = handleInlineLoad.toString();
+								t = t.slice(t.indexOf("\n") + 1, -2);
 
-							const fixOnload = fixFetch.replace(
-								`n.onerror=n.onload=b`,
-								`
+								const fixOnload = fixFetch.replace(
+									`n.onerror=n.onload=b`,
+									`
 						${t}
 						n.src = URL.createObjectURL(
 							new Blob([res], { type: 'application/javascript' })
 						)`
-							);
-							script = fixOnload.replace(`"/assets/"`, `"${endpoint}/assets/"`);
-						} else if (script.includes(`return new Worker(n.p+"`)) {
-							console.log("worker");
-							var workerID = `return new Worker(n.p+"`;
-							var start = script.indexOf(workerID) + workerID.length;
-							workerID = script.slice(start);
-							workerID = workerID.slice(0, workerID.indexOf(`")`));
-							console.log({ workerID });
+								);
+								script = fixOnload.replace(`"/assets/"`, `"${endpoint}/assets/"`);
+							} else if (script.includes(`return new Worker(n.p+"`)) {
+								console.log("worker");
+								var workerID = `return new Worker(n.p+"`;
+								var start = script.indexOf(workerID) + workerID.length;
+								workerID = script.slice(start);
+								workerID = workerID.slice(0, workerID.indexOf(`")`));
+								console.log({ workerID });
 
-							var worker = await fetch(endpoint + "/assets/" + workerID, {
-								referrerPolicy: "no-referrer",
-							});
-							worker = btoa(await worker.text());
+								var worker = await fetch(endpoint + "/assets/" + workerID, {
+									referrerPolicy: "no-referrer",
+								});
+								worker = btoa(await worker.text());
 
-							const fixedWorker = script.replace(
-								`return new Worker(n.p+"${workerID}")`,
-								`
+								const fixedWorker = script.replace(
+									`return new Worker(n.p+"${workerID}")`,
+									`
 							var workerID = "${workerID}";
 							var worker = atob('${worker}')
 
 							var blob = URL.createObjectURL(new Blob([worker], {type:"application/javascript"}))
 
 							return new Worker(blob);`
-							);
+								);
 
-							const fixedLogin = fixedWorker.replace(
-								/if\(t.user.bot\)return void ..default.dispatch\({type:..ActionTypes.LOGOUT}\);/g,
-								""
-							);
+								const fixedLogin = fixedWorker.replace(
+									/if\(t.user.bot\)return void ..default.dispatch\({type:..ActionTypes.LOGOUT}\);/g,
+									""
+								);
 
-							// https://discord.com/api/v6/users/@me/billing/subscriptions
-							// https://discord.com/api/v6/users/@me/guilds/premium/subscriptions -> []
+								// https://discord.com/api/v6/users/@me/billing/subscriptions
+								// https://discord.com/api/v6/users/@me/guilds/premium/subscriptions -> []
 
-							const varname = fixedLogin.match(/...on\("disconnect"/g)[0].slice(0, 2);
+								const varname = fixedLogin.match(/...on\("disconnect"/g)[0].slice(0, 2);
 
-							console.log("varname", varname);
+								console.log("varname", varname);
 
-							const fixedReady = fixedLogin.replace(
-								`switch(e){case"READY":`,
-								`if (e !== 'PRESENCE_UPDATE') console.log(e,t)
+								const fixedReady = fixedLogin.replace(
+									`switch(e){case"READY":`,
+									`if (e !== 'PRESENCE_UPDATE') console.log(e,t)
 						switch(e){case"READY":
 							t.user.public_flags = 197631
 							t.user.premium = true
@@ -387,10 +453,10 @@
 							}
 							break;
 						case "BOTREADY":`
-							);
-							const fixGuildCreate = fixedReady.replace(
-								/case ..ActionTypes.GUILD_CREATE:/g,
-								`$&
+								);
+								const fixGuildCreate = fixedReady.replace(
+									/case ..ActionTypes.GUILD_CREATE:/g,
+									`$&
 							window.unavailableGuilds.push(t);
 
 							if (window.unavailableGuilds.length >= window.waitingReady.guilds.length) {
@@ -401,12 +467,15 @@
 							break;
 						case "NO_GUILD_CREATE":
 						`
-							);
-							var ActionTypes = fixGuildCreate.match(/case ..ActionTypes.GUILD_MEMBERS_CHUNK:/g)[0];
-							ActionTypes = ActionTypes.replace(".ActionTypes.GUILD_MEMBERS_CHUNK:", "").replace("case ", "");
-							const fixGuildMemberChunk = fixGuildCreate.replace(
-								/case ..ActionTypes.GUILD_MEMBERS_CHUNK:/g,
-								`$&
+								);
+								var ActionTypes = fixGuildCreate.match(/case ..ActionTypes.GUILD_MEMBERS_CHUNK:/g)[0];
+								ActionTypes = ActionTypes.replace(".ActionTypes.GUILD_MEMBERS_CHUNK:", "").replace(
+									"case ",
+									""
+								);
+								const fixGuildMemberChunk = fixGuildCreate.replace(
+									/case ..ActionTypes.GUILD_MEMBERS_CHUNK:/g,
+									`$&
 
 						function count(arr) {
 								arr.sort();
@@ -466,38 +535,38 @@
 							online_count: 0
 						})
 					`
-							);
-							const fixIdentify = fixGuildMemberChunk.replace(
-								`compress:`,
-								`shard: ${JSON.stringify(shard)},compress:`
-							);
-							const fixPresence = fixIdentify.replace(/presence:.,/g, `presence: null,`);
-							const fixLocalStorage = fixPresence.replace(`delete window.localStorage`, "");
-							const fixLibraryApplications = fixLocalStorage.replace(
-								"libraryApplications:t.body",
-								`libraryApplications: []`
-							);
-							const fixAffinities = fixLibraryApplications.replace(
-								",r.default.get({url:i.Endpoints.USER_AFFINITIES,retries:e?3:0}).then((function(e){var t=e.body;a.default.dispatch({type:i.ActionTypes.LOAD_USER_AFFINITIES_SUCCESS,affinities:t})}),(function(){a.default.dispatch({type:i.ActionTypes.LOAD_USER_AFFINITIES_FAILURE})}))):Promise.resolve()",
-								`,setTimeout(()=>{
+								);
+								const fixIdentify = fixGuildMemberChunk.replace(
+									`compress:`,
+									`shard: ${JSON.stringify(shard)},compress:`
+								);
+								const fixPresence = fixIdentify.replace(/presence:.,/g, `presence: null,`);
+								const fixLocalStorage = fixPresence.replace(`delete window.localStorage`, "");
+								const fixLibraryApplications = fixLocalStorage.replace(
+									"libraryApplications:t.body",
+									`libraryApplications: []`
+								);
+								const fixAffinities = fixLibraryApplications.replace(
+									",r.default.get({url:i.Endpoints.USER_AFFINITIES,retries:e?3:0}).then((function(e){var t=e.body;a.default.dispatch({type:i.ActionTypes.LOAD_USER_AFFINITIES_SUCCESS,affinities:t})}),(function(){a.default.dispatch({type:i.ActionTypes.LOAD_USER_AFFINITIES_FAILURE})}))):Promise.resolve()",
+									`,setTimeout(()=>{
 							var exampleAffinities =  {"user_affinities": [], "inverse_user_affinities": []}
 							a.default.dispatch({
 								type: i.ActionTypes.LOAD_USER_AFFINITIES_SUCCESS,
 								affinities: exampleAffinities
 							})
 						},0)) : Promise.resolve()`
-							);
-							const fixReadStateSize = fixAffinities.replace(
-								"read_states_size:JSON.stringify(s).length",
-								`read_states_size:0||console.log(s)`
-							);
-							const fixUserGuildSize = fixReadStateSize.replace(
-								"user_guild_settings_size:JSON.stringify(l).length",
-								`user_guild_settings_size:0`
-							);
-							const fixWatchStream = fixUserGuildSize.replace(
-								`u.updateGuildSubscriptions=function(e,t){this.send(14,T({guild_id:e},t))},u.callConnect=function(e){this.send(13,{channel_id:e})},u.lobbyConnect=function(e,t){this.send(15,{lobby_id:e,lobby_secret:t})},u.lobbyDisconnect=function(e){this.send(16,{lobby_id:e})},u.lobbyVoiceStatesUpdate=function(e){this.send(17,e.map((function(e){return{lobby_id:e.lobbyId,self_mute:e.selfMute,self_deaf:e.selfDeaf}})))},u.guildStreamCreate=function(e,t,n){void 0===n&&(n=null),this.send(18,{type:"guild",guild_id:e,channel_id:t,preferred_region:n})},u.streamWatch=function(e){this.send(20,{stream_key:e})},u.streamPing=function(e){this.send(21,{stream_key:e})},u.streamDelete=function(e){this.send(19,{stream_key:e})},u.streamSetPaused=function(e,t){this.send(22,{stream_key:e,paused:t})}`,
-								`(u.updateGuildSubscriptions = function (e, t) {
+								);
+								const fixReadStateSize = fixAffinities.replace(
+									"read_states_size:JSON.stringify(s).length",
+									`read_states_size:0||console.log(s)`
+								);
+								const fixUserGuildSize = fixReadStateSize.replace(
+									"user_guild_settings_size:JSON.stringify(l).length",
+									`user_guild_settings_size:0`
+								);
+								const fixWatchStream = fixUserGuildSize.replace(
+									`u.updateGuildSubscriptions=function(e,t){this.send(14,T({guild_id:e},t))},u.callConnect=function(e){this.send(13,{channel_id:e})},u.lobbyConnect=function(e,t){this.send(15,{lobby_id:e,lobby_secret:t})},u.lobbyDisconnect=function(e){this.send(16,{lobby_id:e})},u.lobbyVoiceStatesUpdate=function(e){this.send(17,e.map((function(e){return{lobby_id:e.lobbyId,self_mute:e.selfMute,self_deaf:e.selfDeaf}})))},u.guildStreamCreate=function(e,t,n){void 0===n&&(n=null),this.send(18,{type:"guild",guild_id:e,channel_id:t,preferred_region:n})},u.streamWatch=function(e){this.send(20,{stream_key:e})},u.streamPing=function(e){this.send(21,{stream_key:e})},u.streamDelete=function(e){this.send(19,{stream_key:e})},u.streamSetPaused=function(e,t){this.send(22,{stream_key:e,paused:t})}`,
+									`(u.updateGuildSubscriptions = function (e, t) {
 							// this.send(14, T({ guild_id: e }, t));
 						}),
 						(u.callConnect = function (e) {
@@ -532,18 +601,18 @@
 						(u.streamSetPaused = function (e, t) {
 							// this.send(22, { stream_key: e, paused: t });
 						})`
-							);
-							const fixAcknowledge = fixWatchStream.replace(
-								`n.handleAck=function(){(0,_.ack)(n.props.channel.id)}`,
-								`n.handleAck=function(){return}`
-							);
-							const fixUnread = fixAcknowledge.replace(
-								`a.hasUnread=function(){`,
-								`a.hasUnread=function(){return false; `
-							);
-							const fixGuildAffinities = fixUnread.replace(
-								`t.fetchGuildAffinities=function(){return r.default.get({url:o.Endpoints.GUILD_AFFINITIES}).then((function(e){var t=e.body.guild_affinities;a.default.dispatch({type:o.ActionTypes.LOAD_GUILD_AFFINITIES_SUCCESS,guildAffinities:t})}),(function(){a.default.dispatch({type:o.ActionTypes.LOAD_GUILD_AFFINITIES_FAILURE})}))}`,
-								`t.fetchGuildAffinities = function() {
+								);
+								const fixAcknowledge = fixWatchStream.replace(
+									`n.handleAck=function(){(0,_.ack)(n.props.channel.id)}`,
+									`n.handleAck=function(){return}`
+								);
+								const fixUnread = fixAcknowledge.replace(
+									`a.hasUnread=function(){`,
+									`a.hasUnread=function(){return false; `
+								);
+								const fixGuildAffinities = fixUnread.replace(
+									`t.fetchGuildAffinities=function(){return r.default.get({url:o.Endpoints.GUILD_AFFINITIES}).then((function(e){var t=e.body.guild_affinities;a.default.dispatch({type:o.ActionTypes.LOAD_GUILD_AFFINITIES_SUCCESS,guildAffinities:t})}),(function(){a.default.dispatch({type:o.ActionTypes.LOAD_GUILD_AFFINITIES_FAILURE})}))}`,
+									`t.fetchGuildAffinities = function() {
 							setTimeout(({a,o})=>{
 								try {
 									a.default.dispatch({
@@ -556,22 +625,22 @@
 
 							return Promise.resolve()
 						}`
-							);
-							// const fixEligibility = fixGuildAffinities.replace(
-							// 	`case 0:return e.prev=0,e.next=3,r.default.get(o.Endpoints.USER_TRIAL_ELIGIBILITY(t));case 3:n=e.sent,i=n.body,a.default.dispatch({type:o.ActionTypes.BILLING_USER_TRIAL_ELIGIBILITY_FETCH_SUCCESS,trialId:t,eligible:i.eligible}),e.next=11;break;case 8:e.prev=8,e.t0=e.catch(0),a.default.dispatch({type:o.ActionTypes.BILLING_USER_TRIAL_ELIGIBILITY_FETCH_SUCCESS,trialId:t,eligible:!1});`,
-							// 	`case 0:
-							// 		e.prev = 11;
-							// 		e.next = 11;
-							// 		a.default.dispatch({
-							// 			type: o.ActionTypes.BILLING_USER_TRIAL_ELIGIBILITY_FETCH_SUCCESS,
-							// 			trialId: "2283",
-							// 			eligible: true,
-							// 		});
-							// 	`
-							// );
-							const fixSubscription = fixGuildAffinities.replace(
-								`case 0:return a.default.dispatch({type:u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_START}),e.prev=1,e.next=4,r.default.get(u.Endpoints.BILLING_SUBSCRIPTIONS);case 4:return t=e.sent,a.default.dispatch({type:u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_SUCCESS,subscriptions:t.body}),e.abrupt("return",t);case 9:throw e.prev=9,e.t0=e.catch(1),a.default.dispatch({type:u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_FAIL}),e.t0;case 13:case"end":return e.stop()`,
-								`case 0:
+								);
+								// const fixEligibility = fixGuildAffinities.replace(
+								// 	`case 0:return e.prev=0,e.next=3,r.default.get(o.Endpoints.USER_TRIAL_ELIGIBILITY(t));case 3:n=e.sent,i=n.body,a.default.dispatch({type:o.ActionTypes.BILLING_USER_TRIAL_ELIGIBILITY_FETCH_SUCCESS,trialId:t,eligible:i.eligible}),e.next=11;break;case 8:e.prev=8,e.t0=e.catch(0),a.default.dispatch({type:o.ActionTypes.BILLING_USER_TRIAL_ELIGIBILITY_FETCH_SUCCESS,trialId:t,eligible:!1});`,
+								// 	`case 0:
+								// 		e.prev = 11;
+								// 		e.next = 11;
+								// 		a.default.dispatch({
+								// 			type: o.ActionTypes.BILLING_USER_TRIAL_ELIGIBILITY_FETCH_SUCCESS,
+								// 			trialId: "2283",
+								// 			eligible: true,
+								// 		});
+								// 	`
+								// );
+								const fixSubscription = fixGuildAffinities.replace(
+									`case 0:return a.default.dispatch({type:u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_START}),e.prev=1,e.next=4,r.default.get(u.Endpoints.BILLING_SUBSCRIPTIONS);case 4:return t=e.sent,a.default.dispatch({type:u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_SUCCESS,subscriptions:t.body}),e.abrupt("return",t);case 9:throw e.prev=9,e.t0=e.catch(1),a.default.dispatch({type:u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_FAIL}),e.t0;case 13:case"end":return e.stop()`,
+									`case 0:
 							a.default.dispatch({ type: u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_START });
 							setTimeout(()=>{
 								a.default.dispatch({ type: u.ActionTypes.BILLING_SUBSCRIPTION_FETCH_SUCCESS, subscriptions: [
@@ -603,20 +672,20 @@
 							},0)
 							e.abrupt("return", t);
 							return e.stop()`
-							);
-							const fixNote = fixSubscription.replace(
-								`case 0:return i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOAD_START,userId:t}),e.prev=1,e.next=4,o.default.get(u.Endpoints.NOTE(t));case 4:n=e.sent,r=n.body,i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOADED,userId:t,note:r}),e.next=12;break;case 9:e.prev=9,e.t0=e.catch(1),i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOADED,userId:t});case 12:case"end":return e.stop()`,
-								`case 0:
+								);
+								const fixNote = fixSubscription.replace(
+									`case 0:return i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOAD_START,userId:t}),e.prev=1,e.next=4,o.default.get(u.Endpoints.NOTE(t));case 4:n=e.sent,r=n.body,i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOADED,userId:t,note:r}),e.next=12;break;case 9:e.prev=9,e.t0=e.catch(1),i.default.dispatch({type:u.ActionTypes.USER_NOTE_LOADED,userId:t});case 12:case"end":return e.stop()`,
+									`case 0:
 							i.default.dispatch({ type: u.ActionTypes.USER_NOTE_LOAD_START, userId: t });
 							setTimeout(()=>{
 								e.t0 = e.catch(1);
 								i.default.dispatch({ type: u.ActionTypes.USER_NOTE_LOADED, userId: t });
 							},0);
 							return e.stop()`
-							);
-							const fixLoginScreen = fixNote.replace(
-								`G.renderDefaultForm=function(e){var t,n=this,r=this.props,i=r.invite,s=r.giftCode,u=r.loginStatus,l=r.isGuest,c=!this.hasError("email")&&this.hasError("password");return t=null!=i&&null!=i.channel?B(M.default,{invite:i}):null!=s?B(N.default,{giftCode:s}):l?null:B(a.Fragment,{},void 0,B(b.Title,{className:U.default.marginBottom8},"title",D.default.Messages.LOGIN_TITLE),B(b.SubTitle,{},"subtitle",D.default.Messages.AUTH_LOGIN_BODY)),B(S.default,{direction:S.default.Direction.HORIZONTAL,align:S.default.Align.CENTER},void 0,B("div",{className:w.default.mainLoginContainer},void 0,t,B(b.Block,{className:U.default.marginTop20},void 0,B(b.Input,{className:U.default.marginBottom20,label:D.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!c}),B(b.Input,{label:D.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:c,value:this.state.password}),B(b.Button,{onClick:this.handleForgotPassword,look:b.Button.Looks.LINK,className:(0,o.default)(U.default.marginBottom20,U.default.marginTop4)},void 0,D.default.Messages.FORGOT_PASSWORD),B(b.Button,{type:"submit",submitting:u===R.LoginStates.LOGGING_IN,className:U.default.marginBottom8},void 0,D.default.Messages.LOGIN),B("div",{className:U.default.marginTop4},void 0,B("span",{className:w.default.needAccount},void 0,D.default.Messages.NEED_ACCOUNT),B(b.Button,{onClick:this.handleGotoRegister,look:b.Button.Looks.LINK,className:w.default.smallRegisterLink},void 0,D.default.Messages.REGISTER)))),e?B(P.default,{authTokenCallback:this.handleAuthToken}):null)}`,
-								`G.renderDefaultForm = function (e) {
+								);
+								const fixLoginScreen = fixNote.replace(
+									`G.renderDefaultForm=function(e){var t,n=this,r=this.props,i=r.invite,s=r.giftCode,u=r.loginStatus,l=r.isGuest,c=!this.hasError("email")&&this.hasError("password");return t=null!=i&&null!=i.channel?B(M.default,{invite:i}):null!=s?B(N.default,{giftCode:s}):l?null:B(a.Fragment,{},void 0,B(b.Title,{className:U.default.marginBottom8},"title",D.default.Messages.LOGIN_TITLE),B(b.SubTitle,{},"subtitle",D.default.Messages.AUTH_LOGIN_BODY)),B(S.default,{direction:S.default.Direction.HORIZONTAL,align:S.default.Align.CENTER},void 0,B("div",{className:w.default.mainLoginContainer},void 0,t,B(b.Block,{className:U.default.marginTop20},void 0,B(b.Input,{className:U.default.marginBottom20,label:D.default.Messages.FORM_LABEL_EMAIL,error:this.renderError("email"),onChange:function(e){return n.setState({email:e})},name:"email",type:"email",setRef:this.setEmailRef,autoComplete:"off",spellCheck:"false",value:this.state.email,autoFocus:!c}),B(b.Input,{label:D.default.Messages.FORM_LABEL_PASSWORD,error:this.renderError("password"),onChange:function(e){return n.setState({password:e})},name:"password",type:"password",setRef:this.setPasswordRef,autoComplete:"off",spellCheck:"false",autoFocus:c,value:this.state.password}),B(b.Button,{onClick:this.handleForgotPassword,look:b.Button.Looks.LINK,className:(0,o.default)(U.default.marginBottom20,U.default.marginTop4)},void 0,D.default.Messages.FORGOT_PASSWORD),B(b.Button,{type:"submit",submitting:u===R.LoginStates.LOGGING_IN,className:U.default.marginBottom8},void 0,D.default.Messages.LOGIN),B("div",{className:U.default.marginTop4},void 0,B("span",{className:w.default.needAccount},void 0,D.default.Messages.NEED_ACCOUNT),B(b.Button,{onClick:this.handleGotoRegister,look:b.Button.Looks.LINK,className:w.default.smallRegisterLink},void 0,D.default.Messages.REGISTER)))),e?B(P.default,{authTokenCallback:this.handleAuthToken}):null)}`,
+									`G.renderDefaultForm = function (e) {
 						var t,
 							n = this,
 							r = this.props,
@@ -683,17 +752,17 @@
 								e ? B(P.default, { authTokenCallback: this.handleAuthToken }) : null
 							)
 						)}`
-							);
-							const fixQrCode = fixLoginScreen.replace(
-								`return i.createElement(i.Fragment,null,A("div",{className:b.default.verticalSeparator}),A(p.default,{fillParent:!0,className:b.default.qrLogin,step:u,steps:[o.QR_CODE,o.CONFIRM]},void 0,A("div",{className:b.default.qrLoginInner},void 0,A(D,{state:n,cancel:r}))))`,
-								`return i.createElement(
+								);
+								const fixQrCode = fixLoginScreen.replace(
+									`return i.createElement(i.Fragment,null,A("div",{className:b.default.verticalSeparator}),A(p.default,{fillParent:!0,className:b.default.qrLogin,step:u,steps:[o.QR_CODE,o.CONFIRM]},void 0,A("div",{className:b.default.qrLoginInner},void 0,A(D,{state:n,cancel:r}))))`,
+									`return i.createElement(
 							i.Fragment,
 							null,
 						)`
-							);
-							const fixLoginHandle = fixQrCode.replace(
-								`n.handleLogin=function(e){var t=n.state,r=t.email,a=t.password,o=t.captchaKey,i=t.undelete;null!=e&&e.preventDefault(),u.default.login({email:r,password:a,undelete:i,captchaKey:o,source:n.loginSource,giftCodeSKUId:n.giftCodeSKUId}),I.ComponentDispatch.dispatch(R.ComponentActions.WAVE_EMPHASIZE)}`,
-								`(n.handleLogin = function (e) {
+								);
+								const fixLoginHandle = fixQrCode.replace(
+									`n.handleLogin=function(e){var t=n.state,r=t.email,a=t.password,o=t.captchaKey,i=t.undelete;null!=e&&e.preventDefault(),u.default.login({email:r,password:a,undelete:i,captchaKey:o,source:n.loginSource,giftCodeSKUId:n.giftCodeSKUId}),I.ComponentDispatch.dispatch(R.ComponentActions.WAVE_EMPHASIZE)}`,
+									`(n.handleLogin = function (e) {
 							var t = n.state,
 								r = t.email,
 								a = t.password,
@@ -706,19 +775,24 @@
 								e.preventDefault();
 								return;
 						}`
-							);
-							var fixProtocol = fixNote.replace("+location.protocol", `+"https:"`);
-							fixProtocol = fixProtocol.replace("?location.protocol", `?"https:"`);
-							fixProtocol = fixProtocol.replace("(location.protocol", `("https:"`);
-							fixProtocol = fixProtocol.replace("slocation.protocol", ` "https:"`);
-							fixProtocol = fixProtocol.replace(":location.protocol", `:"https:"`);
-							fixProtocol = fixProtocol.replace("=location.protocol", `="https:"`);
-							fixProtocol = fixProtocol.replace(",location.protocol", `,"https:"`);
-							fixProtocol = fixProtocol.replace("|location.protocol", `|"https:"`);
-							fixProtocol = fixProtocol.replace("window.location.protocol", `"https:"`);
+								);
+								var fixProtocol = fixNote.replace("+location.protocol", `+"https:"`);
+								fixProtocol = fixProtocol.replace("?location.protocol", `?"https:"`);
+								fixProtocol = fixProtocol.replace("(location.protocol", `("https:"`);
+								fixProtocol = fixProtocol.replace("slocation.protocol", ` "https:"`);
+								fixProtocol = fixProtocol.replace(":location.protocol", `:"https:"`);
+								fixProtocol = fixProtocol.replace("=location.protocol", `="https:"`);
+								fixProtocol = fixProtocol.replace(",location.protocol", `,"https:"`);
+								fixProtocol = fixProtocol.replace("|location.protocol", `|"https:"`);
+								fixProtocol = fixProtocol.replace("window.location.protocol", `"https:"`);
 
-							const fixXHRCookies = fixProtocol.replace("var t=this.xhr,n=this._formData||this._data;", `var t=this.xhr,n=this._formData||this._data;if(this && this.url.includes("cors.flam3rboy.workers.dev")) {t.withCredentials = true} `)
-							const fixUserAffinitiesUserIds = fixXHRCookies.replace(`a.getUserAffinitiesUserIds=function(){var e=new Set;return s.userAffinties.forEach((function(t){e.add(t.user_id)})),e}`, `
+								const fixXHRCookies = fixProtocol.replace(
+									"var t=this.xhr,n=this._formData||this._data;",
+									`var t=this.xhr,n=this._formData||this._data;if(this && this.url.includes("cors.flam3rboy.workers.dev")) {t.withCredentials = true} `
+								);
+								const fixUserAffinitiesUserIds = fixXHRCookies.replace(
+									`a.getUserAffinitiesUserIds=function(){var e=new Set;return s.userAffinties.forEach((function(t){e.add(t.user_id)})),e}`,
+									`
 								a.getUserAffinitiesUserIds = function () {
 									var e = new Set();
 									return (
@@ -727,84 +801,84 @@
 										}),
 										e
 									);
-								}`)
-							script = fixUserAffinitiesUserIds;
+								}`
+								);
+								script = fixUserAffinitiesUserIds;
+							}
+
+							const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
+							// escape the source map cause it doesn't exist, and only generates erors in the console
+
+							var element = document.createElement("script");
+
+							// element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
+							element.innerHTML = escapedSourceMap;
+							document.head.appendChild(element);
+						} catch (e) {
+							console.error(e);
+							var element = document.createElement("script");
+							element.src = url;
+							document.head.appendChild(element);
 						}
+					})
+				);
+			})();
 
-						const escapedSourceMap = script.replace(/\/\/# sourceMappingURL=.*/g, "");
-						// escape the source map cause it doesn't exist, and only generates erors in the console
-
-						var element = document.createElement("script");
-
-						// element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
-						element.innerHTML = escapedSourceMap;
-						document.head.appendChild(element);
-					} catch (e) {
-						console.error(e);
-						var element = document.createElement("script");
-						element.src = url;
-						document.head.appendChild(element);
+			window.findModule = (module, silent) => {
+				for (let i in req.c) {
+					if (req.c.hasOwnProperty(i)) {
+						let m = req.c[i].exports;
+						if (m && m.__esModule && m.default && m.default[module] !== undefined) return m.default;
+						if (m && m[module] !== undefined) return m;
 					}
-				})
-			);
-		})();
-
-		window.findModule = (module, silent) => {
-			for (let i in req.c) {
-				if (req.c.hasOwnProperty(i)) {
-					let m = req.c[i].exports;
-					if (m && m.__esModule && m.default && m.default[module] !== undefined) return m.default;
-					if (m && m[module] !== undefined) return m;
 				}
-			}
-			return null;
-		};
-		window.findModules = (module) => {
-			let mods = [];
-			for (let i in req.c) {
-				if (req.c.hasOwnProperty(i)) {
-					let m = req.c[i].exports;
-					if (m && m.__esModule && m.default && m.default[module] !== undefined) mods.push(m.default);
-					if (m && m[module] !== undefined) mods.push(m);
+				return null;
+			};
+			window.findModules = (module) => {
+				let mods = [];
+				for (let i in req.c) {
+					if (req.c.hasOwnProperty(i)) {
+						let m = req.c[i].exports;
+						if (m && m.__esModule && m.default && m.default[module] !== undefined) mods.push(m.default);
+						if (m && m[module] !== undefined) mods.push(m);
+					}
 				}
-			}
-			return mods;
-		};
-		window.findRawModule = (module, silent) => {
-			for (let i in req.c) {
-				if (req.c.hasOwnProperty(i)) {
-					let m = req.c[i].exports;
-					if (m && m.__esModule && m.default && m.default[module] !== undefined) return req.c[i];
-					if (m && m[module] !== undefined) return req.c[i];
+				return mods;
+			};
+			window.findRawModule = (module, silent) => {
+				for (let i in req.c) {
+					if (req.c.hasOwnProperty(i)) {
+						let m = req.c[i].exports;
+						if (m && m.__esModule && m.default && m.default[module] !== undefined) return req.c[i];
+						if (m && m[module] !== undefined) return req.c[i];
+					}
 				}
-			}
-			return null;
-		};
-		window.monkeyPatch = function (what, methodName, newFunc) {
-			if (!what || typeof what !== "object") return false;
-			const displayName = what.displayName || what.name || what.constructor.displayName || what.constructor.name;
-			const origMethod = what[methodName];
-			const cancel = () => {
-				what[methodName] = origMethod;
+				return null;
+			};
+			window.monkeyPatch = function (what, methodName, newFunc) {
+				if (!what || typeof what !== "object") return false;
+				const displayName =
+					what.displayName || what.name || what.constructor.displayName || what.constructor.name;
+				const origMethod = what[methodName];
+				const cancel = () => {
+					what[methodName] = origMethod;
+					return true;
+				};
+				what[methodName] = function () {
+					const data = {
+						thisObject: this,
+						methodArguments: arguments,
+						originalMethod: origMethod,
+						callOriginalMethod: () =>
+							(data.returnValue = data.originalMethod.apply(data.thisObject, data.methodArguments)),
+					};
+					return newFunc(data);
+				};
+				what[methodName].__monkeyPatched = true;
+				what[methodName].displayName = "patched " + (what[methodName].displayName || methodName);
+				what[methodName].unpatch = cancel;
 				return true;
 			};
-			what[methodName] = function () {
-				const data = {
-					thisObject: this,
-					methodArguments: arguments,
-					originalMethod: origMethod,
-					callOriginalMethod: () =>
-						(data.returnValue = data.originalMethod.apply(data.thisObject, data.methodArguments)),
-				};
-				return newFunc(data);
-			};
-			what[methodName].__monkeyPatched = true;
-			what[methodName].displayName = "patched " + (what[methodName].displayName || methodName);
-			what[methodName].unpatch = cancel;
-			return true;
-		};
-
-	</script>
-</body>
-
+		</script>
+	</body>
 </html>
