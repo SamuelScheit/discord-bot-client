@@ -21,7 +21,7 @@ async function createWindow() {
 	win.webContents.on("did-navigate", () => {
 		win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
 	});
-	systemPreferences.askForMediaAccess("microphone");
+	if (systemPreferences && systemPreferences.askForMediaAccess) systemPreferences.askForMediaAccess("microphone");
 	win.webContents.on("new-window", function (e, url) {
 		e.preventDefault();
 		require("electron").shell.openExternal(url);
