@@ -7,7 +7,7 @@ WIP
 
 ## [Download](https://github.com/Flam3rboy/discord-bot-client/releases/tag/3.0.0)
 ### Program
-- Mac: [dmg](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client-3.1.0-mac.zip) | [zip](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client-3.1.0-mac.zip)
+- Mac: [dmg](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client-3.1.0.dmg) | [zip](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client-3.1.0-mac.zip)
 - Windows: [Installer](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client.Setup.3.1.0.exe) | [Portable](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client.3.1.0.Portable.exe)
 - Linux: [deb](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/discord-bot-client_3.1.0_amd64.deb) | [freebsd](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/discord-bot-client-3.1.0.freebsd) | [AppImage](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/discord-bot-client-3.1.0.AppImage) | [pacman](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/discord-bot-client-3.1.0.pacman) | [rpm](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/discord-bot-client-3.1.0.x86_64.rpm)
 ### Extension
