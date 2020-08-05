@@ -12,7 +12,7 @@ WIP
 - Linux: [deb](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.0.0/discord-bot-client_3.0.0_amd64.deb)
 
 ### Extension
-- [Firefox](https://addons.mozilla.org/de/firefox/addon/discord-bot-client/)
+- [Firefox](https://addons.mozilla.org/firefox/addon/discord-bot-client/)
 - Chrome (coming soon)
 - [Other (.zip)](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.0.0/extension.zip)
 
