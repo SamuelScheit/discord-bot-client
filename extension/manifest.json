@@ -7,13 +7,10 @@
 	"background": {
 		"scripts": ["script.js"]
 	},
-	"permissions": [
-		"webRequest",
-		"webRequestBlocking",
-		"https://botclient.tk/",
-		"https://*.discord.com/",
-		"wss://gateway.discord.gg/"
-	],
+	"permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+	"page_action": {
+		"default_popup": "popup.html"
+	},
 	"icons": {
 		"16": "images/16.png",
 		"32": "images/32.png",

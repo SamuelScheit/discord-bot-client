@@ -1,14 +1,15 @@
 {
 	"name": "discord-bot-client",
-	"version": "2.0.0",
-	"description": "",
+	"version": "3.1.0",
+	"description": "Discord Bot Client - login into discord with a bot token",
 	"main": "index.js",
 	"scripts": {
 		"build": "webpack --progress --colors --watch",
-		"start": "node index.js"
+		"start": "node index.js",
+		"electron": "electron electron/electron.js"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Flam3rboy",
 	"license": "ISC",
 	"dependencies": {
 		"express": "^4.17.1"
@@ -20,7 +21,6 @@
 		"@babel/register": "^7.0.0",
 		"babel-loader": "^8.0.6",
 		"circular-dependency-plugin": "^5.0.2",
-		"electron": "^9.0.4",
 		"gulp": "^4.0.0",
 		"gulp-babel-minify": "^0.5.1",
 		"gulp-csso": "^3.0.1",

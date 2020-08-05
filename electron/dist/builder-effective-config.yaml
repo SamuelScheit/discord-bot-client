@@ -1,0 +1,27 @@
+directories:
+  output: dist
+  buildResources: build
+mac:
+  category: public.app-category.social-networking
+  target:
+    - dmg
+    - zip
+  icon: buildResources/icon.png
+linux:
+  target:
+    - AppImage
+    - deb
+    - rpm
+    - freebsd
+    - pacman
+    - p5p
+    - apk
+  icon: buildResources/icon.png
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32
+  icon: buildResources/icon.png
+electronVersion: 9.1.2
