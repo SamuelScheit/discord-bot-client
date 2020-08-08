@@ -4,6 +4,7 @@
 	"description": "Discord Bot Client - login into discord with a bot token",
 	"main": "index.js",
 	"scripts": {
+		"start": "electron index.js",
 		"pack": "electron-builder --dir -mwl",
 		"dist": "electron-builder -mwl"
 	},
@@ -37,9 +38,7 @@
 				"deb",
 				"rpm",
 				"freebsd",
-				"pacman",
-				"p5p",
-				"apk"
+				"pacman"
 			],
 			"icon": "buildResources/icon.png"
 		},

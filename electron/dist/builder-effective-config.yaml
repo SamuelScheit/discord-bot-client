@@ -9,12 +9,6 @@ mac:
   icon: buildResources/icon.png
 linux:
   target:
-    - AppImage
-    - deb
-    - rpm
-    - freebsd
-    - pacman
-    - p5p
     - apk
   icon: buildResources/icon.png
 win:
