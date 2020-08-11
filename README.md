@@ -1,4 +1,4 @@
-# Discord Bot Client
+# Discord Bot Clientd
 Allows you to use your bot, just like any other user account, except Friends, Groups
 
 ## [Support](https://discord.gg/bw6uFt4)
