@@ -10,26 +10,26 @@ async function createWindow() {
 		width: 1920,
 		height: 1080,
 		icon: __dirname + "/buildResources/icon.png",
+		frame: false,
 		webPreferences: {
+			preload: 'preload.js',
 			webSecurity: true,
-			nodeIntegration: false,
-			enableRemoteModule: false,
-			contextIsolation: true,
+			nodeIntegration: true,
+			enableRemoteModule: true,
+			contextIsolation: false,
 		},
 	});
-	// win.webContents.openDevTools();
 	win.webContents.on("did-navigate", () => {
 		win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
+		
 	});
+	
 	if (systemPreferences && systemPreferences.askForMediaAccess) systemPreferences.askForMediaAccess("microphone");
 	win.webContents.on("new-window", function (e, url) {
 		e.preventDefault();
 		require("electron").shell.openExternal(url);
 	});
 	win.loadURL("https://blank.org");
-	// win.loadURL("data:text/html;charset=UTF-8," + encodeURIComponent(html), {
-	// 	baseURLForDataURL: `file://${__dirname}/app`,
-	// });
 
 	const filter = {
 		urls: ["<all_urls>"],
