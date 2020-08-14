@@ -1,8 +1,6 @@
 # Discord Bot Client
 Allows you to use your bot, just like any other user account, except Friends, Groups
 
-## [Support](https://discord.gg/bw6uFt4)
-
 ## [Download](https://github.com/Flam3rboy/discord-bot-client/releases/latest)
 ### Program
 - Mac: [dmg](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client-3.1.0.dmg) | [zip](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.1.0/Discord.Bot.Client-3.1.0-mac.zip)
