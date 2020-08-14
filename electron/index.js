@@ -12,7 +12,7 @@ async function createWindow() {
 		icon: __dirname + "/buildResources/icon.png",
 		frame: false,
 		webPreferences: {
-			preload: 'preload.js',
+			//preload: 'preload.js',
 			webSecurity: true,
 			nodeIntegration: true,
 			enableRemoteModule: true,
@@ -20,7 +20,8 @@ async function createWindow() {
 		},
 	});
 	win.webContents.on("did-navigate", () => {
-		win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
+		//win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
+		win.webContents.executeJavaScript(`document.getElementsByClassName("container-after-titlebar")[0].innerHTML += atob("${btoa(html)}")`);
 		
 	});
 	
@@ -30,6 +31,7 @@ async function createWindow() {
 		require("electron").shell.openExternal(url);
 	});
 	win.loadURL("https://blank.org");
+	win.loadFile('index.html');
 
 	const filter = {
 		urls: ["<all_urls>"],
