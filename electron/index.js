@@ -12,7 +12,6 @@ async function createWindow() {
 		icon: __dirname + "/buildResources/icon.png",
 		frame: false,
 		webPreferences: {
-			//preload: 'preload.js',
 			webSecurity: true,
 			nodeIntegration: true,
 			enableRemoteModule: true,
@@ -20,8 +19,17 @@ async function createWindow() {
 		},
 	});
 	win.webContents.on("did-navigate", () => {
-		//win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
-		win.webContents.executeJavaScript(`document.getElementsByClassName("container-after-titlebar")[0].innerHTML += atob("${btoa(html)}")`);
+		win.webContents.executeJavaScript(`document.querySelector(".container-after-titlebar").innerHTML = atob("${btoa(html)}")`);
+		win.webContents.executeJavaScript(`
+			const num = document.scripts.length;
+			for(var i = 0; i < num; i++){
+				const target = document.querySelector(".container-after-titlebar");
+				var newScript = document.createElement("script");
+				var inlineScript = document.createTextNode(document.scripts.item(i).text);
+				newScript.appendChild(inlineScript); 
+				target.appendChild(newScript);
+			}
+		`);
 		
 	});
 	
