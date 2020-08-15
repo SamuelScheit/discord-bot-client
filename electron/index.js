@@ -11,6 +11,7 @@ async function createWindow() {
 		height: 1080,
 		icon: __dirname + "/buildResources/icon.png",
 		frame: false,
+		titleBarStyle: "hidden",
 		webPreferences: {
 			webSecurity: true,
 			nodeIntegration: true,
