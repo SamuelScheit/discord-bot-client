@@ -11,7 +11,7 @@ Allows you to use your bot, just like any other user account, except Friends, Gr
 - Chrome (coming soon)
 - [Other (.zip)](https://github.com/Flam3rboy/discord-bot-client/releases/download/3.0.0/extension.zip)
 
-## [Tutorial](https://www.youtube.com/watch?v=_q3Hr2bsYr8)
+## [Tutorial](https://www.youtube.com/watch?v=EebA8M843Ok)
 [![Youtube Tutorial Login as bot](https://img.youtube.com/vi/_q3Hr2bsYr8/0.jpg)](https://www.youtube.com/watch?v=_q3Hr2bsYr8)
 
 ## Functions
