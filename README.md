@@ -35,26 +35,20 @@ If you load the page, DM's will show up, if a new user writes the bot then you c
 - Join server with invite link
 
 
-## Docker
-To run the discord bot client in a docker container, you can just run:
-```
-docker run -p 8080:3000 -d flam3rboy/discord-bot-client
-```
-This will start the server on: http://localhost:8080 
-
-Alternative you can install it locally on your system:
-
-## Install
+## Build
 - Install [Nodejs](https://nodejs.org/en/download/)
-- Install Dependencies:
+- Install git or just download the repository as a zip file:
+```
+git clone https://github.com/Flam3rboy/discord-bot-client
+cd discord-bot-client/electron
+```
+- Install dependencies:
 ```
 npm i
 ```
-
-## Start
+- Start the program
 ```
 npm start
 ```
-Now navigate to http://localhost:3000/
 
 
