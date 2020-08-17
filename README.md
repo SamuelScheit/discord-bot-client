@@ -1,9 +1,8 @@
 # Discord Bot Client
 Allows you to use your bot, just like any other user account, except Friends, Groups
 
-## | [Download](https://github.com/Flam3rboy/discord-bot-client/releases/latest) | [FAQ/Support](https://github.com/Flam3rboy/discord-bot-client/blob/master/FAQ.md) | 
+## | [Download](https://github.com/Flam3rboy/discord-bot-client/releases/latest) | [FAQ/Support](https://github.com/Flam3rboy/discord-bot-client/blob/master/FAQ.md) | [Tutorial](https://www.youtube.com/watch?v=AmKBFzJOMpY) |
 
-## [Tutorial](https://www.youtube.com/watch?v=AmKBFzJOMpY)
 [![Youtube Tutorial Login as bot](https://img.youtube.com/vi/AmKBFzJOMpY/0.jpg)](https://www.youtube.com/watch?v=AmKBFzJOMpY)
 
 ## Functions
