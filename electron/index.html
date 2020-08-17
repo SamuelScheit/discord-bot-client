@@ -5,11 +5,7 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			const customTitlebar = require('custom-electron-titlebar');
-			new customTitlebar.Titlebar({
-				backgroundColor: customTitlebar.Color.fromHex('#202225'),
-				itemBackgroundColor: customTitlebar.Color.fromHex('#282B2E'),
-			});
+			window.electron.buildTitleBar();
 			document.querySelector('.titlebar').style.height = '22px';
 			document.querySelector('.window-controls-container').style.height = '100%';
 			document.querySelector('.menubar').style.visibility = 'hidden';

@@ -1,6 +1,7 @@
 const { app, BrowserWindow, systemPreferences } = require("electron");
 const fetch = require("node-fetch");
 const btoa = require("btoa");
+const path = require('path');
 
 async function createWindow() {
 	var html = await fetch("https://raw.githubusercontent.com/Flam3rboy/discord-bot-client/master/index.html");
@@ -13,10 +14,11 @@ async function createWindow() {
 		frame: false,
 		titleBarStyle: "hidden",
 		webPreferences: {
+			preload: path.join(__dirname, 'preload.js'),
 			webSecurity: true,
-			nodeIntegration: true,
+			nodeIntegration: false,
 			enableRemoteModule: true,
-			contextIsolation: false,
+			contextIsolation: true,
 		},
 	});
 	win.webContents.on("did-navigate", () => {
