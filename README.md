@@ -1,55 +1,48 @@
-# Discord Bot Client
-Allows you to use your bot, just like any other user account, except Friends, Groups
+![BOT CLIENT](https://s12.directupload.net/images/200907/zcpxtyxp.png)
 
-# No longer Maintained, only security flaws and critical errors
+<div>
+  <p>
+    <a href="https://www.patreon.com/flam3rboy" data-patreon-widget-type="become-patron-button"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="85"></a>
+  </p>
+    
 
-## | [Download](https://github.com/Flam3rboy/discord-bot-client/releases/latest) | [FAQ/Support](https://github.com/Flam3rboy/discord-bot-client/blob/master/FAQ.md) | [Tutorial](https://www.youtube.com/watch?v=AmKBFzJOMpY) |
+| [Download](https://github.com/Flam3rboy/discord-bot-client/releases/tag/3.1.0) | [FAQ](https://github.com/Flam3rboy/discord-bot-client/blob/master/FAQ.md) | [Tutorial](https://www.youtube.com/watch?v=AmKBFzJOMpY) |
+| :---: | :---: | :---: |
 
-[![Youtube Tutorial Login as bot](https://img.youtube.com/vi/AmKBFzJOMpY/0.jpg)](https://www.youtube.com/watch?v=AmKBFzJOMpY)
+</div>
 
-## Functions
-- View Guilds (Lazy load them) 
-- Manage Guilds (Name, Image, Audit log, Emoji, Webhooks, Invites, Bans, Widget, Moderation, Roles)
-- Manage Channels (Add, Delete, Name, Permissions, Invites, Webhooks, Slowmode, NSFW, Topic)
-- Messages (Send, View History, Embeds, View Reactions, Add/Remove Reactions, Delete, Edit, Pin)
-- Create a Guild (if the bot has fewer than 10 Servers)
-- Even supports mobile smartphones
-- Voice Support
-- See Guild members in the side bar (you can see them in the server dropdown menu under members)
-- React with other emojis (Nitro)
-- GIF Search
-- Send Files
+---
 
-## DM
-If you load the page, DM's will show up, if a new user writes the bot then you can answer him
+**Discord Bot Client** allows you to use your bot, just like any other user account, except Friends, Groups. **No longer Maintained, only security flaws and critical errors**
 
-## Planned Features
-- Better Discord support
-- Direct Messages (DM) history list
-- Change Status
+---
+![Features](https://s12.directupload.net/images/200907/9m8qldwi.png)
+- **View Guilds** *(Lazy load them)*
+- **Manage Guilds** (Name, Image, Audit log, Emoji, Webhooks, Invites, Bans, Widget, Moderation, Roles)
+- **Manage Channels** (Add, Delete, Name, Permissions, Invites, Webhooks, Slowmode, NSFW, Topic)
+- **Messages** (Send, View History, Embeds, View Reactions, Add/Remove Reactions, Delete, Edit, Pin)
+- **Create a Guild** (if the bot has fewer than 10 Servers)
+- **Voice Support**
+- **See Guild members in the side bar** (you can see them in the server dropdown menu under members)
+- **Use Emojis from other servers** (Nitro)
+- **GIF Search**
+- **Send Files**
+- **Mobile App** (For Patreons)
+- **DM's** (DM's will show up, if a new user writes the bot then you can answer him)
 
-## Not supported by discord api
-- Message search
-- Video
-- Friends
-- DM Groups
-- Join server with invite link
+---
 
+![Build](https://s12.directupload.net/images/200907/5j3544ai.png)
 
-## Build
-- Install [Nodejs](https://nodejs.org/en/download/)
-- Install git or just download the repository as a zip file:
-```
+>  __You need to install [NodeJS](https://nodejs.org/en/download/).__ Install git or just download the repository as a zip file:
+
+```js
 git clone https://github.com/Flam3rboy/discord-bot-client
 cd discord-bot-client/electron
 ```
-- Install dependencies:
-```
-npm i
-```
-- Start the program
-```
-npm start
-```
+
+>  Install all dependencies with ```npm i``` and after that can you start Bot Client with ```npm start```
+>  
 
 
+*Discord Bot Client is **no longer supported** and also no longer updated or maintained.*
