@@ -13,7 +13,7 @@
 
 ---
 
-**Discord Bot Client** allows you to use your bot, just like any other user account, except Friends, Groups. **No longer Maintained, only security flaws and critical errors**
+**Discord Bot Client** allows you to use your bot, just like any other user account, except Friends and Groups. **No longer Maintained, only security flaws and critical errors**
 
 ---
 ![Features](https://s12.directupload.net/images/200907/9m8qldwi.png)
@@ -28,7 +28,7 @@
 - **GIF Search**
 - **Send Files**
 - **Mobile App** (For Patreons)
-- **DM's** (DM's will show up, if a new user writes the bot then you can answer him)
+- **DM's** (DM's will show up, after a user dms the bot)
 
 ---
 
@@ -41,7 +41,7 @@ git clone https://github.com/Flam3rboy/discord-bot-client
 cd discord-bot-client/electron
 ```
 
->  Install all dependencies with ```npm i``` and after that can you start Bot Client with ```npm start```
+>  Install all dependencies with ```npm i``` start Bot Client with ```npm start```
 >  
 
 
