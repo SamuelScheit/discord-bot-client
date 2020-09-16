@@ -11,7 +11,17 @@ function TitleBar(){
 	document.querySelector('.titlebar').style.height = '22px';
 	document.querySelector('.container-after-titlebar').style.marginTop = '-8px';  // removes the gap between the titlebar and the main content
 	document.querySelector('.window-controls-container').style.height = '100%';
-	document.querySelector('.menubar').style.visibility = 'hidden';
+
+	// make view visible
+	var buttons = document.querySelectorAll('.menubar-menu-button');
+	for (button of buttons){
+		if (button.getAttribute('aria-label') != 'View'){
+			button.style.visibility = 'hidden';
+		} else {
+			button.style.height = '26px';
+		}
+	}
+
 	var buttons = document.querySelectorAll('.window-icon-bg');
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].style.width = "28px";
