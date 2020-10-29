@@ -13,7 +13,8 @@
 
 ---
 
-**Discord Bot Client** allows you to use your bot, just like any other user account, except Friends and Groups. **No longer Maintained, only security flaws and critical errors**
+**Discord Bot Client** allows you to use your bot, just like any other user account, except Friends and Groups. 
+**No longer Maintained, only security flaws and critical errors**
 
 ---
 ![Features](https://s12.directupload.net/images/200907/9m8qldwi.png)
