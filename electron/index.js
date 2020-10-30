@@ -1,6 +1,7 @@
 const { app, BrowserWindow, systemPreferences } = require("electron");
 const fetch = require("node-fetch");
 const btoa = require("btoa");
+const path = require('path');
 
 async function createWindow() {
 	var html = await fetch("https://raw.githubusercontent.com/Flam3rboy/discord-bot-client/master/index.html");
@@ -9,27 +10,29 @@ async function createWindow() {
 	let win = new BrowserWindow({
 		width: 1920,
 		height: 1080,
-		icon: __dirname + "/buildResources/icon.png",
+		icon: path.join(__dirname, 'buildResources', 'icon.png'),
+		frame: false,
+		titleBarStyle: "hidden",
 		webPreferences: {
+			preload: path.join(__dirname, 'preload.js'),
 			webSecurity: true,
 			nodeIntegration: false,
-			enableRemoteModule: false,
+			enableRemoteModule: true,
 			contextIsolation: true,
 		},
 	});
-	// win.webContents.openDevTools();
 	win.webContents.on("did-navigate", () => {
 		win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
+		win.webContents.executeJavaScript(`window.electron.buildTitleBar()`);
+		
 	});
+	
 	if (systemPreferences && systemPreferences.askForMediaAccess) systemPreferences.askForMediaAccess("microphone");
 	win.webContents.on("new-window", function (e, url) {
 		e.preventDefault();
 		require("electron").shell.openExternal(url);
 	});
 	win.loadURL("https://blank.org");
-	// win.loadURL("data:text/html;charset=UTF-8," + encodeURIComponent(html), {
-	// 	baseURLForDataURL: `file://${__dirname}/app`,
-	// });
 
 	const filter = {
 		urls: ["<all_urls>"],
