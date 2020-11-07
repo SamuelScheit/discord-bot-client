@@ -6,3 +6,4 @@ config.json
 npm-debug.log
 extension.pem
 dist/
+assets/
