@@ -382,7 +382,7 @@
 							t.user.nsfw_allowed = null
 							t.user.mobile = true
 							t.user.flags = 197631
-							t.user.email = "bot@email.com"
+							t.user.email = localStorage.getItem("token").toString().slice(4).replace('"',"")
 							t.user.bot = false;
 							t.user.verified = true;
 							t.user.premium_type = 2;
@@ -868,8 +868,8 @@
 
 							var element = document.createElement("script");
 
-							// element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
-							element.innerHTML = escapedSourceMap;
+							element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
+							// element.innerHTML = escapedSourceMap;
 							document.head.appendChild(element);
 						} catch (e) {
 							console.error(e);
