@@ -868,8 +868,8 @@
 
 							var element = document.createElement("script");
 
-							element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
-							// element.innerHTML = escapedSourceMap;
+							// element.src = URL.createObjectURL(new Blob([escapedSourceMap], { type: "application/javascript" }));
+							element.innerHTML = escapedSourceMap;
 							document.head.appendChild(element);
 						} catch (e) {
 							console.error(e);
