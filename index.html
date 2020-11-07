@@ -69,7 +69,8 @@
 					for the botclient to work
 				</h1>
 				<h2>
-					Chrome Web Store: https://chrome.google.com/webstore/detail/discord-bot-client/eonfeaapgbpaadighcffnfddjeoblgfb?hl=en
+					Chrome Web Store:
+					https://chrome.google.com/webstore/detail/discord-bot-client/eonfeaapgbpaadighcffnfddjeoblgfb?hl=en
 					If you want easy installation you need to wait until Firefox approves the extension
 				</h2>
 				<h5>
@@ -817,11 +818,7 @@
 										className: re.default.button,
 										target: "_BLANK",
 										href: "https://github.com/Flam3rboy/discord-bot-client"
-									}, void 0, "GitHub"), se("a", {
-										className: re.default.button,
-										target: "_BLANK",
-										href: "https://discord.gg/qEPG8gA"
-									}, void 0, "Support"));
+									}, void 0, "GitHub"));
 									`
 								);
 								const fixServerJoin = fixNativeAppNotice.replace(
@@ -883,62 +880,6 @@
 					})
 				);
 			})();
-
-			window.findModule = (module, silent) => {
-				for (let i in req.c) {
-					if (req.c.hasOwnProperty(i)) {
-						let m = req.c[i].exports;
-						if (m && m.__esModule && m.default && m.default[module] !== undefined) return m.default;
-						if (m && m[module] !== undefined) return m;
-					}
-				}
-				return null;
-			};
-			window.findModules = (module) => {
-				let mods = [];
-				for (let i in req.c) {
-					if (req.c.hasOwnProperty(i)) {
-						let m = req.c[i].exports;
-						if (m && m.__esModule && m.default && m.default[module] !== undefined) mods.push(m.default);
-						if (m && m[module] !== undefined) mods.push(m);
-					}
-				}
-				return mods;
-			};
-			window.findRawModule = (module, silent) => {
-				for (let i in req.c) {
-					if (req.c.hasOwnProperty(i)) {
-						let m = req.c[i].exports;
-						if (m && m.__esModule && m.default && m.default[module] !== undefined) return req.c[i];
-						if (m && m[module] !== undefined) return req.c[i];
-					}
-				}
-				return null;
-			};
-			window.monkeyPatch = function (what, methodName, newFunc) {
-				if (!what || typeof what !== "object") return false;
-				const displayName =
-					what.displayName || what.name || what.constructor.displayName || what.constructor.name;
-				const origMethod = what[methodName];
-				const cancel = () => {
-					what[methodName] = origMethod;
-					return true;
-				};
-				what[methodName] = function () {
-					const data = {
-						thisObject: this,
-						methodArguments: arguments,
-						originalMethod: origMethod,
-						callOriginalMethod: () =>
-							(data.returnValue = data.originalMethod.apply(data.thisObject, data.methodArguments)),
-					};
-					return newFunc(data);
-				};
-				what[methodName].__monkeyPatched = true;
-				what[methodName].displayName = "patched " + (what[methodName].displayName || methodName);
-				what[methodName].unpatch = cancel;
-				return true;
-			};
 		</script>
 	</body>
 </html>
