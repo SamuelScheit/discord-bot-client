@@ -42,7 +42,7 @@ git clone https://github.com/Flam3rboy/discord-bot-client
 cd discord-bot-client/electron
 ```
 
->  Install all dependencies with ```npm i``` start Bot Client with ```npm start```
+>  Install all dependencies with ```npm i``` start Bot Client with ```electron .```
 >  
 
 
