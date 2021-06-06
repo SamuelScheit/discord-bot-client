@@ -4,7 +4,7 @@ const btoa = require("btoa");
 // const fs = require("fs");
 
 async function createWindow() {
-	var html = await fetch("https://raw.githubusercontent.com/Flam3rboy/discord-bot-client/master/index.html");
+	var html = await fetch("https://raw.githubusercontent.com/Shayshon/discord-bot-client/master/index.html");
 	// html = fs.readFileSync(__dirname + "/../index.html");
 	html = await html.text();
 	// Create the browser window.
