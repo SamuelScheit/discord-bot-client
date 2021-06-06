@@ -28,7 +28,7 @@ async function createWindow() {
 		e.preventDefault();
 		require("electron").shell.openExternal(url);
 	});
-	win.loadURL("https://canary.discord.com");
+	win.loadURL("https://blank.org");
 	// win.loadURL("data:text/html;charset=UTF-8," + encodeURIComponent(html), {
 	// 	baseURLForDataURL: `file://${__dirname}/app`,
 	// });
