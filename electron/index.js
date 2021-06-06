@@ -28,7 +28,7 @@ async function createWindow() {
 		e.preventDefault();
 		require("electron").shell.openExternal(url);
 	});
-	win.loadURL("https://blank.org");
+	win.loadURL("https://canary.discord.com");
 	// win.loadURL("data:text/html;charset=UTF-8," + encodeURIComponent(html), {
 	// 	baseURLForDataURL: `file://${__dirname}/app`,
 	// });
@@ -42,12 +42,12 @@ async function createWindow() {
 		details.requestHeaders["origin"] = "https://discord.com";
 		if (
 			[
-				"https://discord.com/api/v9/users/@me/library",
-				"https://discord.com/api/v9/users/@me/guilds/premium/subscriptions",
-				"https://discord.com/api/v9/science",
+				"https://canary.discord.com/api/v9/users/@me/library",
+				"https://canary.discord.com/api/v9/users/@me/guilds/premium/subscriptions",
+				"https://canary.discord.com/api/v9/science",
 			].includes(details.url) ||
-			details.url.includes("https://discord.com/api/v9/users/@me/billing/trials/") ||
-			details.url.includes("https://discord.com/api/v9/users/@me/applications/")
+			details.url.includes("https://canary.discord.com/api/v9/users/@me/billing/trials/") ||
+			details.url.includes("https://canary.discord.com/api/v9/users/@me/applications/")
 		) {
 			return callback({ cancel: true });
 		}
