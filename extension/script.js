@@ -22,12 +22,12 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 		else details.requestHeaders.push({ name: "Origin", value: "https://discord.com" });
 		if (
 			[
-				"https://discord.com/api/v6/users/@me/library",
-				"https://discord.com/api/v6/users/@me/guilds/premium/subscriptions",
-				"https://discord.com/api/v6/science",
+				"https://discord.com/api/v9/users/@me/library",
+				"https://discord.com/api/v9/users/@me/guilds/premium/subscriptions",
+				"https://discord.com/api/v9/science",
 			].includes(details.url) ||
-			details.url.includes("https://discord.com/api/v6/users/@me/billing/trials/") ||
-			details.url.includes("https://discord.com/api/v6/users/@me/applications/")
+			details.url.includes("https://discord.com/api/v9/users/@me/billing/trials/") ||
+			details.url.includes("https://discord.com/api/v9/users/@me/applications/")
 		) {
 			return { cancel: true };
 		}
