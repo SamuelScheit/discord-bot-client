@@ -39,15 +39,15 @@ async function createWindow() {
 	const { session } = win.webContents;
 
 	session.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
-		details.requestHeaders["origin"] = "https://discord.com";
+		details.requestHeaders["origin"] = "https://canary.discord.com";
 		if (
 			[
-				"https://discord.com/api/v6/users/@me/library",
-				"https://discord.com/api/v6/users/@me/guilds/premium/subscriptions",
-				"https://discord.com/api/v6/science",
+				"https://canary.discord.com/api/v9/users/@me/library",
+				"https://canary.discord.com/api/v9/users/@me/guilds/premium/subscriptions",
+				"https://canary.discord.com/api/v9/science",
 			].includes(details.url) ||
-			details.url.includes("https://discord.com/api/v6/users/@me/billing/trials/") ||
-			details.url.includes("https://discord.com/api/v6/users/@me/applications/")
+			details.url.includes("https://canary.discord.com/api/v9/users/@me/billing/trials/") ||
+			details.url.includes("https://canary.discord.com/api/v9/users/@me/applications/")
 		) {
 			return callback({ cancel: true });
 		}
