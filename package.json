@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "webpack --progress --colors --watch",
 		"start": "node index.js",
-		"electron": "electron electron/electron.js"
+		"electron": "electron electron/index.js"
 	},
 	"keywords": [],
 	"author": "Flam3rboy",
