@@ -19,6 +19,7 @@ async function createWindow() {
 			contextIsolation: true,
 		},
 	});
+	win.removeMenu();
 	// win.webContents.openDevTools();
 	win.webContents.on("did-navigate", () => {
 		win.webContents.executeJavaScript(`document.write(atob("${btoa(html)}"))`);
