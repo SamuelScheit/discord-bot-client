@@ -14,8 +14,8 @@ if (chr) extraInfoSpecRequest.push("extraHeaders") && extraInfoSpecResponse.push
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
 	function (details) {
-		if (chr) if (details.initiator !== "https://botclient.tk") return;
-		if (fir) if (!details.originUrl.includes("botclient.tk")) return;
+		if (chr) if (details.initiator !== "https://disbot-client.herokuapp.com") return;
+		if (fir) if (!details.originUrl.includes("disbot-client.herokuapp.com")) return;
 
 		let header = details.requestHeaders.find((e) => e.name.toLowerCase() === "origin");
 		if (header) header.value = "https://discord.com";
@@ -43,8 +43,8 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 
 chrome.webRequest.onHeadersReceived.addListener(
 	(details) => {
-		if (chr) if (details.initiator !== "https://botclient.tk") return;
-		if (fir) if (!details.originUrl.includes("botclient.tk")) return;
+		if (chr) if (details.initiator !== "https://disbot-client.herokuapp.com") return;
+		if (fir) if (!details.originUrl.includes("disbot-client.herokuapp.com")) return;
 
 		let header = details.responseHeaders.find((e) => e.name.toLowerCase() === "access-control-allow-origin");
 		if (header) header.value = "*";
