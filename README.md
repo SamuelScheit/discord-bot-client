@@ -30,7 +30,6 @@
 - **Use Emojis from other servers** (Nitro)
 - **GIF Search**
 - **Send Files**
-- **Mobile App** (For Patreons)
 - **DM's** (DM's will show up, after a user dms the bot)
 
 ---
