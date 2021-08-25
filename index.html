@@ -24,63 +24,10 @@
 			body {
 				background-color: #303136;
 			}
-
-			#extension-modal {
-				display: none;
-				width: 100vw;
-				height: 100vh;
-				position: fixed;
-				top: 0;
-				left: 0;
-				z-index: 1000;
-				justify-content: center;
-				align-items: center;
-				color: #dcddde;
-				text-align: center;
-			}
-
-			#extension-modal a {
-				color: #00b0f4 !important;
-			}
-			#extension-modal h1 {
-				font-size: 80px;
-			}
-			#extension-modal h2 {
-				margin-top: 3rem;
-				font-size: 60px;
-			}
-			#extension-modal h5 {
-				margin-top: 3rem;
-				font-size: 30px;
-			}
 		</style>
 	</head>
 
 	<body>
-		<div id="extension-modal">
-			<div>
-				<h1>
-					You need to use the
-					<a
-						href="https://github.com/Flam3rboy/discord-bot-client/blob/master/extension.zip?raw=true"
-						id="extension-link"
-						>extension</a
-					>
-					for the botclient to work
-				</h1>
-				<h2>
-					Chrome Web Store:
-					https://chrome.google.com/webstore/detail/discord-bot-client/eonfeaapgbpaadighcffnfddjeoblgfb?hl=en
-					If you want easy installation you need to wait until Firefox approves the extension
-				</h2>
-				<h5>
-					<strong>Why:</strong> Discord changed their servers, that the browser can't just download the source
-					code anymore.
-					<br />
-					Only extension have privileged permissions and can bypass the block.
-				</h5>
-			</div>
-		</div>
 		<div id="app-mount"></div>
 		<script>
 			window.__OVERLAY__ = /overlay/.test(location.pathname);
@@ -90,65 +37,27 @@
 		</script>
 		<script>
 			window.GLOBAL_ENV = {
-				API_ENDPOINT: "//canary.discord.com/api",
-				WEBAPP_ENDPOINT: "//canary.discord.com",
+				API_ENDPOINT: "//discord.com/api",
+				WEBAPP_ENDPOINT: "//discord.com",
 				CDN_HOST: "cdn.discordapp.com",
-				ASSET_ENDPOINT: "https://canary.discord.com",
-				WIDGET_ENDPOINT: "//canary.discord.com/widget",
+				ASSET_ENDPOINT: "https://discord.com",
+				WIDGET_ENDPOINT: "//discord.com/widget",
 				INVITE_HOST: "discord.gg",
 				GUILD_TEMPLATE_HOST: "discord.new",
 				GIFT_CODE_HOST: "discord.gift",
 				RELEASE_CHANNEL: "canary",
-				MARKETING_ENDPOINT: "//canary.discord.com",
+				MARKETING_ENDPOINT: "//discord.com",
 				BRAINTREE_KEY: "production_5st77rrc_49pp2rp4phym7387",
 				STRIPE_KEY: "pk_live_CUQtlpQUF0vufWpnpUmQvcdi",
 				NETWORKING_ENDPOINT: "//router.discordapp.net",
 				PROJECT_ENV: "production",
 				REMOTE_AUTH_ENDPOINT: "//remote-auth-gateway.discord.gg",
 				SENTRY_TAGS: { buildId: "1de234a", buildType: "normal" },
-				MIGRATION_SOURCE_ORIGIN: "https://canary.discordapp.com",
-				MIGRATION_DESTINATION_ORIGIN: "https://canary.discord.com",
+				MIGRATION_SOURCE_ORIGIN: "https://discordapp.com",
+				MIGRATION_DESTINATION_ORIGIN: "https://discord.com",
 				HTML_TIMESTAMP: Date.now(),
 				ALGOLIA_KEY: "aca0d7082e4e63af5ba5917d5e96bed0",
 			};
-		</script>
-		<script>
-			localStorage.setItem("gatewayURL", `"wss://gateway.discord.gg"`);
-			!(function () {
-				if (null != window.WebSocket) {
-					var n = function (n) {
-							try {
-								var e = localStorage.getItem(n);
-								return null == e ? null : JSON.parse(e);
-							} catch (n) {
-								return null;
-							}
-						},
-						e = n("token"),
-						o = n("gatewayURL");
-					console.log(o);
-
-					if (e && o && !window.__OVERLAY__) {
-						var r = null != window.DiscordNative || null != window.require ? "etf" : "json",
-							t = o + "/?encoding=" + r + "&v=6&compress=zlib-stream";
-						console.log("[FAST CONNECT] " + t + ", encoding: " + r + ", version: 6");
-						var a = new WebSocket(t);
-						a.binaryType = "arraybuffer";
-						var s = Date.now(),
-							i = { open: !1, gateway: t, messages: [] };
-						(a.onopen = function () {
-							console.log("[FAST CONNECT] connected in " + (Date.now() - s) + "ms"), (i.open = !0);
-						}),
-							(a.onclose = a.onerror = function () {
-								window._ws = null;
-							}),
-							(a.onmessage = function (n) {
-								i.messages.push(n);
-							}),
-							(window._ws = { ws: a, state: i });
-					}
-				}
-			})();
 		</script>
 		<script>
 			window.assets = [
@@ -162,18 +71,6 @@
 			window.unavailableGuilds = [];
 
 			(async () => {
-				try {
-					await fetch("https://discord.com/api/users/@me");
-				} catch (error) {
-					var extension = document.querySelector("#extension-modal");
-					extension.style.display = "flex";
-					console.log("return");
-					var link = document.querySelector("#extension-link");
-					// link.href = "";
-					return;
-				}
-
-				console.log("continue");
 
 				var loaded = 0;
 				var pending = 0;
@@ -183,23 +80,7 @@
 						console.log("init better discord");
 					}
 				}
-
-				try {
-					var shards = 1;
-					var shard = [0, shards];
-				} catch (error) {
-					var shard = [0, 1];
-				}
-
-				try {
-					localStorage.getItem("hi");
-				} catch (e) {
-					alert("You need to enable third party cookies for this website to work");
-				}
-
-				var jquery = document.createElement("script");
-				jquery.src = "https://code.jquery.com/jquery-3.5.1.min.js";
-				document.body.appendChild(jquery);
+				var shard = [0, 1];
 
 				await Promise.all(
 					window.assets.map(async (asset) => {
