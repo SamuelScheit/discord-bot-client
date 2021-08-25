@@ -50,14 +50,19 @@ async function createWindow() {
 		) {
 			return callback({ cancel: true });
 		}
-		details.requestHeaders["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36"
+		if (details.url.startsWith("https://discord.com/assets")) {
+			details.requestHeaders["User-Agent"] =
+				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36";
+		} else {
+			delete details.requestHeaders["User-Agent"];
+		}
 
 		callback({ requestHeaders: details.requestHeaders });
 	});
 
 	session.webRequest.onHeadersReceived(filter, (details, callback) => {
 		details.responseHeaders["access-control-allow-origin"] = "*";
-		details.responseHeaders["content-security-policy"] ="default-src * data: 'unsafe-eval' 'unsafe-inline' blob:"
+		details.responseHeaders["content-security-policy"] = "default-src * data: 'unsafe-eval' 'unsafe-inline' blob:";
 
 		callback({ responseHeaders: details.responseHeaders });
 	});
