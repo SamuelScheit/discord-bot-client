@@ -2,11 +2,11 @@
 
 <div>
   <p>
-    <a href="https://www.patreon.com/flam3rboy" data-patreon-widget-type="become-patron-button"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="85"></a>
+    <a href="https://www.patreon.com/samuelscheit" data-patreon-widget-type="become-patron-button"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="85"></a>
   </p>
     
 
-| [Download](https://github.com/Flam3rboy/discord-bot-client/releases/tag/3.1.0) | [FAQ](https://github.com/Flam3rboy/discord-bot-client/blob/master/FAQ.md) | [Tutorial](https://www.youtube.com/watch?v=AmKBFzJOMpY) |
+| [Download](https://github.com/samuelscheit/discord-bot-client/releases/tag/3.1.0) | [FAQ](https://github.com/samuelscheit/discord-bot-client/blob/master/FAQ.md) | [Tutorial](https://www.youtube.com/watch?v=AmKBFzJOMpY) |
 | :---: | :---: | :---: |
 
 </div>
@@ -38,7 +38,7 @@
 >  __You need to install [NodeJS](https://nodejs.org/en/download/).__ Install git or just download the repository as a zip file:
 
 ```js
-git clone https://github.com/Flam3rboy/discord-bot-client
+git clone https://github.com/samuelscheit/discord-bot-client
 cd discord-bot-client/electron
 ```
 
